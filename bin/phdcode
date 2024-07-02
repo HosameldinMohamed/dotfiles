@@ -1,0 +1,12 @@
+#!/bin/bash
+
+session="phdcode"
+tmux kill-session -t $session
+tmux new-session -d -s $session
+
+tmux rename-window -t 0 'Thesis'
+tmux send-keys -t 0 'nvim ~/code/PhD-thesis/' C-m
+tmux new-window -t $session:1 -n 'Terminal'
+
+tmux attach-session -t $session:0
+

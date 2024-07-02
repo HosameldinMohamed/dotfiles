@@ -1,0 +1,41 @@
+#!/bin/bash
+
+session="ironcode"
+tmux kill-session -t $session
+tmux new-session -d -s $session
+
+tmux rename-window -t 0 'Building'
+tmux send-keys -t 0 'cd ~/code/ironcub/element_ft-nonlinear-modeling/build/ && clear' C-m
+tmux send-keys -t 0 'make install'
+tmux split-window -v
+tmux select-layout even-vertical
+tmux send-keys -t 1 'cd ~/code/ironcub/component_ironcub/build/ && clear' C-m
+tmux send-keys -t 1 'make install'
+tmux split-window -v
+tmux select-layout even-vertical
+tmux send-keys -t 2 'cd ~/code/ironcub/element_ironcub-control/build/ && clear' C-m
+tmux send-keys -t 2 'make install'
+tmux split-window -v
+tmux select-layout even-vertical
+tmux send-keys -t 3 'cd ~/code/ironcub/element_ironcub-estimation/build/ && clear' C-m
+tmux send-keys -t 3 'make install'
+tmux split-window -v
+tmux select-layout tiled
+tmux send-keys -t 4 'cd ~/code/ironcub/element_jet-cat-turbines/build/ && clear' C-m
+tmux send-keys -t 4 'make install'
+tmux select-pane -t 0 # move cursor to the first pane
+
+tmux new-window -t $session:1 -n 'FTs'
+tmux send-keys -t 0 'nvim ~/code/ironcub/element_ft-nonlinear-modeling/' C-m
+tmux new-window -t $session:2 -n 'iRonCub'
+tmux send-keys -t 0 'nvim ~/code/ironcub/component_ironcub/' C-m
+tmux new-window -t $session:3 -n 'Control'
+tmux send-keys -t 0 'nvim ~/code/ironcub/element_ironcub-control/' C-m
+tmux new-window -t $session:4 -n 'Estimation'
+tmux send-keys -t 0 'nvim ~/code/ironcub/element_ironcub-estimation/' C-m
+tmux new-window -t $session:5 -n 'JetCat'
+tmux send-keys -t 0 'nvim ~/code/ironcub/element_jet-cat-turbines/' C-m
+tmux new-window -t $session:6 -n 'Terminal'
+
+tmux attach-session -t $session:1
+
