@@ -27,11 +27,11 @@
 import os
 import asyncio
 import subprocess
-from libqtile import bar, extension, hook, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile import bar, hook, layout, qtile
+from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import send_notification
-from libqtile.log_utils import logger
+# from libqtile.utils import send_notification
+# from libqtile.log_utils import logger
 import colors
 
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
