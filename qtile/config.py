@@ -25,7 +25,7 @@
 # SOFTWARE.
 
 import os
-import asyncio
+# import asyncio
 import subprocess
 from libqtile import bar, hook, layout, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
@@ -423,8 +423,7 @@ def start_once():
 
 ## Add hooks to move specific windows to desired groups
 @hook.subscribe.client_new
-async def client_new(client):
-    await asyncio.sleep(0.1)
+def client_new(client):
     # send_notification("Qtile", "Client - After some time ..")
     # send_notification("Qtile", f"Client name: {client.name} ..")
     if 'Spotify' in client.name:
