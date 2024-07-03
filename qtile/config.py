@@ -426,12 +426,11 @@ def start_once():
 async def client_new(client):
     await asyncio.sleep(0.5)
     # send_notification("Qtile", "Client - After some time ..")
+    # send_notification("Qtile", f"Client name: {client.name} ..")
     if 'Spotify' in client.name:
-        # send_notification("Qtile", f"Client name: {client.name} ..")
-        client.togroup("8")
-        # subprocess.run('qtile cmd-obj -o group 8 -f toscreen')
-        qtile.spawn('qtile cmd-obj -o group 8 -f toscreen')
-        # qtile.cmd_toscreen("8")
+        client.togroup("8", switch_group=True)
+    elif 'matlab' in client.name.lower():
+        client.togroup("3", switch_group=True)
 
 wmname = "QTile"
 
