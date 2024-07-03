@@ -219,10 +219,10 @@ for i in groups:
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
             ),
-            # mod1 + shift + letter of group = move focused window to group
+            # mod1 + Fx = move focused window to group, x is the number of the group {1-9}
             Key(
-                [mod, "shift"],
-                i.name,
+                [mod],
+                f"F{i.name}",
                 lazy.window.togroup(i.name, switch_group=False),
                 desc="Move focused window to group {}".format(i.name),
             ),
@@ -421,16 +421,20 @@ def start_once():
 #     # send_notification("Qtile", "Updated Nitrogen..")
 #     # qtile.call_later(10, send_notification("Qtile", "after sometime.."))
 
-## Spotify
+## Add hooks to move specific windows to desired groups
 @hook.subscribe.client_new
 async def client_new(client):
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(0.1)
     # send_notification("Qtile", "Client - After some time ..")
     # send_notification("Qtile", f"Client name: {client.name} ..")
     if 'Spotify' in client.name:
         client.togroup("8", switch_group=True)
-    elif 'matlab' in client.name.lower():
+    # for the main MATLAB window, switch group
+    if 'matlab' in client.name.lower():
         client.togroup("3", switch_group=True)
+    # for other MATLAB windows, don't switch group
+    elif any('matlab' in s.lower() for s in client._wm_class):
+        client.togroup("3", switch_group=False)
 
 wmname = "LG3D"
 
