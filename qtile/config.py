@@ -432,5 +432,5 @@ async def client_new(client):
     elif 'matlab' in client.name.lower():
         client.togroup("3", switch_group=True)
 
-wmname = "QTile"
+wmname = "LG3D"
 
