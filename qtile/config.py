@@ -102,7 +102,7 @@ keys = [
     Key([mod], "e", lazy.spawn(myFileExploarer), desc='File exploarer'),
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod], "w", lazy.reload_config(), lazy.spawn("nitrogen --restore"), desc='Reset config and wallpapers'),
 
     Key([mod], "r", lazy.spawn(ironcode), desc='launch iRonCub code'),
     Key([mod], "a", lazy.spawn(phdcode), desc='launch PhD thesis latex'),
@@ -110,7 +110,6 @@ keys = [
 
     Key([mod], "p", lazy.spawn(screenshot), desc='Take a rectangle screenshot and save it to clipboard'),
     Key([mod], "d", kill_plasma_wallpaper(), desc='Kill the wallpaper from plasma'),
-    Key([mod, "shift"], "w", lazy.spawn("nitrogen --restore"), desc='Reset wallpapers'),
 
     # Switch between windows
     # Some layouts like 'monadtall' only need to use j/k to move
