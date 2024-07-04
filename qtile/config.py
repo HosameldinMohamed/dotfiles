@@ -94,6 +94,9 @@ def window_to_next_screen(qtile):
         group = qtile.screens[i + 1].group.name
         qtile.current_window.togroup(group)
 
+@lazy.function
+def latest_group(qtile):
+    qtile.current_screen.set_group(qtile.current_screen.previous_group)
 
 keys = [
     # The essentials
@@ -103,6 +106,7 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
     Key([mod], "w", lazy.reload_config(), kill_plasma_wallpaper(), lazy.spawn("nitrogen --restore"), desc='Reset config and wallpapers'),
+    Key([mod], "q", latest_group(), desc='Switch back to the previous group'),
 
     Key([mod], "r", lazy.spawn(ironcode), desc='launch iRonCub code'),
     Key([mod], "a", lazy.spawn(phdcode), desc='launch PhD thesis latex'),
