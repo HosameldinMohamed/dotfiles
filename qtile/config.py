@@ -33,6 +33,7 @@ from libqtile.lazy import lazy
 # from libqtile.utils import send_notification
 # from libqtile.log_utils import logger
 import colors
+import socket
 
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
 myTerm = "konsole"      # My terminal of choice
@@ -194,14 +195,20 @@ keys = [
     Key([mod], "y", lazy.group["4"].toscreen(), desc='toggle floating'),
 ]
 
-groups = []
-group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
+if socket.gethostname() == "gumby":
+    groups = []
+    group_names = ["1", "2", "3", "4"]
+    group_labels = ["1", "2", "3", "4"]
+    group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall"]
+else:
+    groups = []
+    group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
 
-group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
-#group_labels = ["DEV", "WWW", "SYS", "DOC", "VBOX", "CHAT", "MUS", "VID", "GFX",]
-# group_labels = ["", "", "", "", "", "", "", "", "",]
+    group_labels = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
+    #group_labels = ["DEV", "WWW", "SYS", "DOC", "VBOX", "CHAT", "MUS", "VID", "GFX",]
+    # group_labels = ["", "", "", "", "", "", "", "", "",]
 
-group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
+    group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
 
 for i in range(len(group_names)):
     groups.append(
