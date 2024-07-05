@@ -115,6 +115,9 @@ keys = [
 
     Key([mod], "p", lazy.spawn(screenshot), desc='Take a rectangle screenshot and save it to clipboard'),
 
+    Key([mod, "control"], "r", lazy.spawn("konsole -e reboot"), desc="reboot"),
+    Key([mod, "control"], "s", lazy.spawn("konsole -e poweroff"), desc="shutdown"),
+
     # Switch between windows
     # Some layouts like 'monadtall' only need to use j/k to move
     # through the stack, but other layouts like 'columns' will
