@@ -7,6 +7,8 @@ COLORSCHEME=DoomOne
 
 picom --daemon --experimental-backends &
 
+fusuma &
+
 # /usr/bin/kdeconnect-indicator &
 # redshift-gtk &
 # /usr/lib/pam_kwallet_init &
