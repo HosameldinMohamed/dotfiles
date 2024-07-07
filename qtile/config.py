@@ -436,16 +436,30 @@ def start_once():
 ## Add hooks to move specific windows to desired groups
 @hook.subscribe.client_new
 def client_new(client):
-    # send_notification("Qtile", "Client - After some time ..")
-    # send_notification("Qtile", f"Client name: {client.name} ..")
-    if 'Spotify' in client.name:
-        client.togroup("8", switch_group=True)
-    # for the main MATLAB window, switch group
-    if 'matlab' in client.name.lower():
-        client.togroup("3", switch_group=True)
-    # for other MATLAB windows, don't switch group
-    elif any('matlab' in s.lower() for s in client._wm_class):
-        client.togroup("3", switch_group=False)
+    if socket.gethostname() == "gumby":
+        if 'Spotify' in client.name:
+            client.togroup("4", switch_group=True)
+        # for the main MATLAB window, switch group
+        if 'matlab' in client.name.lower():
+            client.togroup("2", switch_group=True)
+        # for other MATLAB windows, don't switch group
+        elif any('matlab' in s.lower() for s in client._wm_class):
+            client.togroup("2", switch_group=False)
+        elif any('kontact' in s.lower() for s in client._wm_class):
+            client.togroup("4", switch_group=False)
+    else:
+        # send_notification("Qtile", "Client - After some time ..")
+        # send_notification("Qtile", f"Client name: {client.name} ..")
+        if 'Spotify' in client.name:
+            client.togroup("9", switch_group=True)
+        # for the main MATLAB window, switch group
+        if 'matlab' in client.name.lower():
+            client.togroup("4", switch_group=True)
+        # for other MATLAB windows, don't switch group
+        elif any('matlab' in s.lower() for s in client._wm_class):
+            client.togroup("4", switch_group=False)
+        elif any('kontact' in s.lower() for s in client._wm_class):
+            client.togroup("8", switch_group=False)
 
 wmname = "LG3D"
 
