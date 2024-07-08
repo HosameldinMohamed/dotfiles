@@ -244,7 +244,7 @@ for i in groups:
 colors = colors.DoomOne
 
 layout_theme = {"border_width": 4,
-                "margin": 8,
+                "margin": 10,
                 "border_focus": '#ff2d2d',
                 "border_normal": colors[0]
                 }
