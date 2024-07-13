@@ -37,7 +37,7 @@ import socket
 
 mod = "mod4"              # Sets mod key to SUPER/WINDOWS
 myTerm = "konsole"      # My terminal of choice
-myFileExploarer = "konsole -e spf"      # My file exploarer of choice
+myFileExploarer = "dolphin"      # My file exploarer of choice
 myBrowser = "google-chrome-stable"       # My browser of choice
 ironcode = "konsole -e ironcode"       # launch iRonCub code
 phdcode = "konsole -e phdcode"       # launch PhD thesis latex
