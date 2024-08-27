@@ -200,9 +200,9 @@ keys = [
 
 if socket.gethostname() == "gumby":
     groups = []
-    group_names = ["1", "2", "3", "4"]
-    group_labels = ["1", "2", "3", "4"]
-    group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall"]
+    group_names = ["1", "2", "3", "4", "5"]
+    group_labels = ["1", "2", "3", "4", "5"]
+    group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall"]
 else:
     groups = []
     group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9",]
@@ -438,7 +438,7 @@ def start_once():
 def client_new(client):
     if socket.gethostname() == "gumby":
         if 'Spotify' in client.name:
-            client.togroup("4", switch_group=True)
+            client.togroup("5", switch_group=True)
         # for the main MATLAB window, switch group
         if 'matlab' in client.name.lower():
             client.togroup("2", switch_group=True)
@@ -446,7 +446,7 @@ def client_new(client):
         elif any('matlab' in s.lower() for s in client._wm_class):
             client.togroup("2", switch_group=False)
         elif any('kontact' in s.lower() for s in client._wm_class):
-            client.togroup("4", switch_group=False)
+            client.togroup("5", switch_group=False)
     else:
         # send_notification("Qtile", "Client - After some time ..")
         # send_notification("Qtile", f"Client name: {client.name} ..")
