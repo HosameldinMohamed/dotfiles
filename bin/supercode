@@ -6,35 +6,35 @@ tmux new-session -d -s $session
 
 tmux rename-window -t 0 'Building'
 tmux send-keys -t 0 'cd ~/code/robotology-superbuild/build/src/YARP/ && clear' C-m
-tmux send-keys -t 0 'make install'
+tmux send-keys -t 0 'make install -j'
 tmux split-window -v
 tmux select-layout even-vertical
 tmux send-keys -t 1 'cd ~/code/robotology-superbuild/build/src/iDynTree/ && clear' C-m
-tmux send-keys -t 1 'make install'
+tmux send-keys -t 1 'make install -j'
 tmux split-window -v
 tmux select-layout even-vertical
 tmux send-keys -t 2 'cd ~/code/robotology-superbuild/build/src/whole-body-estimators/ && clear' C-m
-tmux send-keys -t 2 'make install'
+tmux send-keys -t 2 'make install -j'
 tmux split-window -v
 tmux select-layout even-vertical
 tmux send-keys -t 3 'cd ~/code/robotology-superbuild/build/src/robots-configuration/ && clear' C-m
-tmux send-keys -t 3 'make install'
+tmux send-keys -t 3 'make install -j'
 tmux split-window -v
 tmux select-layout even-vertical
 tmux send-keys -t 4 'cd ~/code/robotology-superbuild/build/src/yarp-device-xsensmt/ && clear' C-m
-tmux send-keys -t 4 'make install'
+tmux send-keys -t 4 'make install -j'
 tmux split-window -v
 tmux select-layout even-vertical
 tmux send-keys -t 5 'cd ~/code/robotology-superbuild/build/src/GazeboYARPPlugins/ && clear' C-m
-tmux send-keys -t 5 'make install'
+tmux send-keys -t 5 'make install -j'
 tmux split-window -v
 tmux select-layout even-vertical
 tmux send-keys -t 6 'cd ~/code/robotology-superbuild/build/src/bipedal-locomotion-framework/ && clear' C-m
-tmux send-keys -t 6 'make install'
+tmux send-keys -t 6 'make install -j'
 tmux split-window -v
 tmux select-layout tiled
 tmux send-keys -t 7 'cd ~/code/robotology-superbuild/build/src/walking-controllers/ && clear' C-m
-tmux send-keys -t 7 'make install'
+tmux send-keys -t 7 'make install -j'
 tmux select-pane -t 0 # move cursor to the first pane
 
 tmux new-window -t $session:1 -n 'YARP'
