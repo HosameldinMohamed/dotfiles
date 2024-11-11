@@ -19,6 +19,9 @@ ln -s <repo-location>/dotfiles/fusuma/ ~/.config/fusuma # Xdotool
 ln -s <repo-location>/dotfiles/lazygit/ ~/.config/lazygit
 ln -s <repo-location>/dotfiles/tmux/ ~/.config/tmux
 ln -s <repo-location>/dotfiles/picom/ ~/.config/picom
+ln -s <repo-location>/dotfiles/hypr/ ~/.config/hypr
+ln -s <repo-location>/dotfiles/waybar/ ~/.config/waybar
+ln -s <repo-location>/dotfiles/eww/ ~/.config/eww
 ```
 
 ## Add the `bin` location to the `PATH`

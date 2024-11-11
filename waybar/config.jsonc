@@ -1,0 +1,212 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-center": [],
+    "modules-right": ["tray", "pulseaudio", "custom/updates", "custom/music", "bluetooth", "network", "backlight", "battery", "hyprland/language", "custom/lock", "custom/power", "clock"],
+    // Workspaces
+    "hyprland/workspaces" : {
+        "on-scroll-up": "hyprctl dispatch workspace r-1",
+        "on-scroll-down": "hyprctl dispatch workspace r+1",        
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+        "move-to-monitor": true,
+        "format": "{icon}{windows}",
+        "show-special": true,
+        "format-icons": {
+            // "1": "󰲠 ",
+            // "2": "󰲢 ",
+            // "3": "󰲤 ",
+            // "4": "󰲦 ",
+            // "5": "󰲨 ",
+            // "6": "󰲪 ",
+            // "7": "󰲬 ",
+            // "8": "󰲮 ",
+            // "9": "󰲰 ",
+            // "10": "󰿬 ",
+            "active": " ",
+            "default": " ",
+            "special": " ",
+            "empty": " ",
+            "urgent": " ",
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": [],
+            "6": [],
+            "7": [],
+            "8": [],
+            "9": [],
+            "10": []
+        },
+        "window-rewrite-default": "",
+            "window-rewrite": {
+            "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
+            "class<firefox>": "", // Windows whose classes are "firefox"
+            "class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github"
+            "class<firefox> title<.*twitch|youtube.*>": "",
+            "class<google-chrome>": "",
+            "class<google-chrome> title<.*github.*>": "",
+            "class<google-chrome> title<.*twitch|youtube.*>": "",
+            "class<google-chrome> title<.*Teams.*>": "󰊻",
+            "class<google-chrome> title<.*WhatsApp.*>": "",
+            "class<google-chrome> title<.*Facebook.*>": "",
+            "class<google-chrome> title<.*Instagram.*>": "",
+            "class<google-chrome> title<.*LinkedIn.*>": "",
+            "class<google-chrome> title<.*Google Translate.*>": "󰊿",
+            "class<google-chrome> title<.*Outlook.*>": "󰴢",
+            "class<Alacritty>": "",
+            "class<org.kde.konsole>": "",
+            "class<org.kde.konsole> title<.*nvim.*>": "",
+            "class<org.kde.konsole> title<.*ironcode.*>": "",
+            "class<org.kde.konsole> title<.*supercode.*>": "",
+            "code": "",
+            "class<thunderbird>": "",
+            "class<vlc>": "",
+            "class<org.gnome.Nautilus>": "",
+            "class<org.kde.dolphin>": "",
+            "class<org.kde.kate>": "",
+            "class<libreoffice-draw>": "",
+            "class<libreoffice-writer>": "",
+            "class<libreoffice-calc>": "",
+            "class<Spotify>": "",
+            "class<com.github.xournalpp.xournalpp>": "",
+            "class<.*MATLAB.*>": "󱪳",
+        },
+    },
+
+    "hyprland/window": {
+        "format": "{}",
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "🌎 $1",
+            "(.*) - fish": "> [$1]"
+        },
+        "separate-outputs": true,
+        "icon": true,
+        "on-click-middle": "hyprctl dispatch killactive",
+    },
+
+    "custom/chrome": {
+        "format": "",
+        "on-click": "google-chrome-stable",
+        "tooltip-format": "Google Chrome!",
+        "tooltip": true
+    },
+    "custom/updates": {
+        "format": " 󰛀 {}",
+        "tooltip-format": "you have {} updates!",
+        "escape": true,
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/updates.sh",
+        "restart-interval": 60,
+        "on-click": "konsole -e ~/.config/waybar/scripts/install-updates.sh",
+        "tooltip": true
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "custom/music": {
+        "format": " ",
+        "escape": true,
+        "interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
+    },
+    "clock": {
+        "timezone": "Europe/Genoa",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": " {:%d/%m/%Y}",
+        "format": "󱑆 {:%H:%M}"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "format": "{percent}% {icon}",
+        "format-icons": ["󰃞", "󰃟","󰃠"],
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}%  ",
+        "format-alt": "{icon}",
+        "format-icons": ["󰂎", "󰁺",  "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹", "󱈏"]
+    },
+
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ipaddr}/{cidr} 󱂇",
+        "format-disconnected": "󰌙",
+        "tooltip-format": "{ifname} via {gwaddr} 󱂇",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname}  ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "on-click" : "konsole -e nmtui"
+    },
+
+    // Pulseaudio
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": "󰋎 ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    // Bluetooth
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": "",
+        "format-off": "",
+        "interval": 30,
+        "on-click": "blueman-manager",
+        "format-no-controller": "",
+    },
+
+    // Lock
+    "custom/lock": {
+        "tooltip": false,
+        "on-click": "hyprlock",
+        "format": " ",
+    },
+
+    // Logout
+    "custom/power": {
+        "tooltip": false,
+        "on-click": "wlogout &",
+        "format": "󰍃 "
+    },
+
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ar": "AR",
+        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
+    },
+}
