@@ -5,7 +5,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["tray", "pulseaudio", "custom/updates", "custom/music", "bluetooth", "network", "backlight", "battery", "hyprland/language", "custom/lock", "custom/power", "clock"],
+    "modules-right": ["tray", "custom/weather", "pulseaudio", "custom/updates", "custom/music", "bluetooth", "network", "backlight", "battery", "hyprland/language", "custom/lock", "custom/power", "clock"],
     // Workspaces
     "hyprland/workspaces" : {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -208,5 +208,13 @@
         "format-en": "EN",
         "format-ar": "AR",
         "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
+    },
+
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "wttrbar --date-format '%m/%d' --location Genova --hide-conditions",
+        "return-type": "json"
     },
 }

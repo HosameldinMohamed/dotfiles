@@ -42,6 +42,7 @@
 /* #custom-music, */
 #tray,
 #custom-updates,
+#custom-weather,
 #backlight,
 #clock,
 #battery,
@@ -133,16 +134,24 @@
   margin-left: 1rem;
 }
 
+#custom-weather {
+    color: @mauve;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    color: #ffffff;
+}
+
 #custom-updates {
-  color: @mauve;
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+    color: @mauve;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
 }
 
 #window {
-  color: @mauve;
-  border-radius: 1rem;
+    color: @mauve;
+    border-radius: 1rem;
 }
 
 window#waybar.konsole {
