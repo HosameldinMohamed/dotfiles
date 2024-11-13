@@ -1,40 +1,41 @@
 @import "mocha.css";
 
 * {
-  font-family: UbuntuMono Nerd Font;
-  font-size: 15px;
-  min-height: 0;
+    font-family: UbuntuMono Nerd Font;
+    font-size: 15px;
+    min-height: 0;
 }
 
 #waybar {
-  /* background: transparent; */
-  /* color: @text; */
-  /* margin: 5px 5px; */
-  background-color: shade(@base, 0.9);
-  border: 2px solid alpha(@crust, 0.3);
+    /* background: transparent; */
+    /* color: @text; */
+    /* margin: 5px 5px; */
+    background-color: shade(@base, 0.9);
+    border: 2px solid alpha(@crust, 0.3);
 }
 
 #workspaces {
-  border-radius: 1rem;
-  margin: 5px;
-  background-color: @surface0;
-  margin-left: 1rem;
+    border-radius: 1rem;
+    margin: 5px;
+    background-color: @surface0;
+    margin-left: 1rem;
+    border: 1px solid @mauve;
 }
 
 #workspaces button {
-  color: @lavender;
-  border-radius: 1rem;
-  padding: 0.4rem;
+    color: @lavender;
+    border-radius: 1rem;
+    padding: 0.4rem;
 }
 
 #workspaces button.active {
-  color: @red;
-  border-radius: 1rem;
+    color: @red;
+    border-radius: 1rem;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
-  border-radius: 1rem;
+    color: @sapphire;
+    border-radius: 1rem;
 }
 
 #window,
@@ -50,77 +51,98 @@
 #custom-lock,
 
 #custom-power {
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border-radius: 1rem;
 }
 
 #network {
-  color: @red;
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+    color: @red;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border-radius: 1rem;
+    border: 1px solid @red;
 }
 
 #clock {
-  color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
-  margin-right: 1rem;
+    color: @blue;
+    border-radius: 0px 1rem 1rem 0px;
+    margin-right: 1rem;
+    border-radius: 1rem;
+    border: 1px solid @blue;
 }
 
 #language {
-  color: @yellow;
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+    color: @blue;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border-radius: 1rem;
+    border: 1px solid @blue;
 }
 
 #battery {
-  color: @green;
+    color: @green;
+    border: 1px solid @green;
 }
 
 #battery.charging {
-  color: @green;
+    color: @green;
 }
 
 #battery.warning:not(.charging) {
-  color: @red;
+    color: @red;
 }
 
 #backlight {
-  color: @yellow;
+    color: @yellow;
+    border: 1px solid @yellow;
 }
 
 #backlight, #battery {
-    border-radius: 0;
+    border-radius: 1rem;
 }
 
 #pulseaudio {
-  color: @yellow;
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+    color: @yellow;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border-radius: 1rem;
+    border: 1px solid @yellow;
+}
+
+#pulseaudio:hover {
+    border-radius: 1rem;
+    border: 1px solid @red;
 }
 
 #custom-music {
-  color: @yellow;
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+    color: @yellow;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border-radius: 1rem;
+    border: 1px solid @yellow;
 }
 
 #custom-lock {
-  color: @yellow;
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+    color: @yellow;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border-radius: 1rem;
+    border: 1px solid @yellow;
 }
 
 #custom-power {
-  color: @red;
-  background-color: @surface0;
-  padding: 0.5rem 1rem;
-  margin: 5px 0;
+    color: @red;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border: 1px solid @red;
 }
 
 /* #custom-chrome { */
@@ -129,17 +151,19 @@
 /* } */
 
 #tray {
-  color: @maroon;
-  border-radius: 1rem 0px 0px 1rem;
-  margin-left: 1rem;
+    color: @maroon;
+    border-radius: 1rem 0px 0px 1rem;
+    margin-left: 1rem;
+    border: 1px solid @maroon;
 }
 
 #custom-weather {
-    color: @mauve;
+    color: @blue;
     background-color: @surface0;
     padding: 0.5rem 1rem;
     margin: 5px 0;
-    color: #ffffff;
+    color: @blue;
+    border: 1px solid @blue;
 }
 
 #custom-updates {
@@ -147,11 +171,13 @@
     background-color: @surface0;
     padding: 0.5rem 1rem;
     margin: 5px 0;
+    border: 1px solid @mauve;
 }
 
 #window {
     color: @mauve;
     border-radius: 1rem;
+    border: 1px solid @mauve;
 }
 
 window#waybar.konsole {
