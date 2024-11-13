@@ -114,7 +114,7 @@
     border: 1px solid @yellow;
 }
 
-#pulseaudio:hover {
+#language:hover, #backlight:hover, #pulseaudio:hover, #custom-music:hover, #custom-lock:hover, #custom-updates:hover, #clock:hover {
     border-radius: 1rem;
     border: 1px solid @red;
 }
