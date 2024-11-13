@@ -46,34 +46,28 @@ case $1 in
     switch-player) switch_player ;;
 esac
 
-# Main loop to continuously update player status
-while true; do
-    # Get the player name and apply the custom label if it exists in the mapping
-    PLAYER_NAME_RAW=$(playerctl -p "$PLAYER" metadata --format "{{playerName}}" 2>/dev/null)
-    PLAYER_NAME="${PLAYER_NAME_MAP[$PLAYER_NAME_RAW]:-$PLAYER_NAME_RAW}"
+# Get the player name and apply the custom label if it exists in the mapping
+PLAYER_NAME_RAW=$(playerctl -p "$PLAYER" metadata --format "{{playerName}}" 2>/dev/null)
+PLAYER_NAME="${PLAYER_NAME_MAP[$PLAYER_NAME_RAW]:-$PLAYER_NAME_RAW}"
 
-    # Get track title and artist
-    TRACK_INFO=$(playerctl -p "$PLAYER" metadata --format "{{title}} - {{artist}}" 2>/dev/null)
-    TRACK_INFO="${TRACK_INFO:-No Track Playing}"
+# Get track title and artist
+TRACK_INFO=$(playerctl -p "$PLAYER" metadata --format "{{title}} - {{artist}}" 2>/dev/null)
+TRACK_INFO="${TRACK_INFO:-No Track Playing}"
 
-    # Get the playback status and set icon accordingly
-    STATUS=$(playerctl -p "$PLAYER" status 2>/dev/null)
-    case "$STATUS" in
-        "Playing") STATUS_ICON="" ;;  # Pause icon when playing
-        "Paused") STATUS_ICON="" ;;   # Play icon when paused
-        *) STATUS_ICON="" ;;         # Stop icon otherwise
-    esac
+# Get the playback status and set icon accordingly
+STATUS=$(playerctl -p "$PLAYER" status 2>/dev/null)
+case "$STATUS" in
+    "Playing") STATUS_ICON="" ;;  # Pause icon when playing
+    "Paused") STATUS_ICON="" ;;   # Play icon when paused
+    *) STATUS_ICON="" ;;         # Stop icon otherwise
+esac
 
-    # Output for Waybar
-    if [[ -z "$PLAYER_NAME" ]]; then
-        echo "No Player"
-        echo "No media player available"
-    else
-        echo "$STATUS_ICON | $PLAYER_NAME"
-        echo "$TRACK_INFO"
-    fi
-
-    # Sleep for 0.5 seconds before refreshing
-    sleep 0.5
-done
+# Output for Waybar
+if [[ -z "$PLAYER_NAME" ]]; then
+    echo "No Player"
+    echo "No media player available"
+else
+    echo "$STATUS_ICON | $PLAYER_NAME"
+    echo "$TRACK_INFO"
+fi
 

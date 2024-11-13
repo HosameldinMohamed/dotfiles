@@ -126,7 +126,7 @@
     },
     "custom/player_control": {
         "exec": "~/.config/waybar/scripts/player_control.sh",
-        "restart-interval": 1,
+        "interval": 1,
         "on-click": "~/.config/waybar/scripts/player_control.sh play-pause",
         "on-click-right": "~/.config/waybar/scripts/player_control.sh switch-player",
         "on-click-middle": "~/.config/waybar/scripts/player_control.sh switch-player",
@@ -221,7 +221,7 @@
         "format": "{}",
         "format-en": "EN",
         "format-ar": "AR",
-        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
+        "on-click": "hyprctl switchxkblayout yichip-trust-lyra-desk-set next",
     },
 
     "custom/weather": {
