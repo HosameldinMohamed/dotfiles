@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/weather", "pulseaudio", "custom/updates", "custom/music", "bluetooth", "network", "backlight", "battery", "hyprland/language", "custom/lock", "custom/power", "clock"],
+    "modules-right": ["tray", "custom/weather", "pulseaudio", "custom/updates", "custom/player_control", "bluetooth", "network", "backlight", "battery", "hyprland/language", "custom/lock", "custom/power", "clock"],
     // Workspaces
     "hyprland/workspaces" : {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -116,11 +116,24 @@
     "custom/music": {
         "format": " ",
         "escape": true,
-        "interval": 5,
-        "tooltip": false,
-        "exec": "playerctl metadata --format='{{ title }}'",
+        "interval": 1,
+        "tooltip": true,
+        "tooltip-format": "{}",
+        // "exec": "echo $(playerctl status | sed 's/Playing/▶️/;s/Paused/⏸️/;s/Stopped/⏹️/') $(playerctl metadata --format '{{ title }} - {{ artist }}')",
+        "exec": "echo $(playerctl status | sed 's/Playing/▶️/;s/Paused/⏸️/;s/Stopped/⏹️/') $(playerctl metadata --format '{{ title }} - {{ artist }}')",
         "on-click": "playerctl play-pause",
         "max-length": 50
+    },
+    "custom/player_control": {
+        "exec": "~/.config/waybar/scripts/player_control.sh",
+        "restart-interval": 1,
+        "on-click": "~/.config/waybar/scripts/player_control.sh play-pause",
+        "on-click-right": "~/.config/waybar/scripts/player_control.sh switch-player",
+        "on-click-middle": "~/.config/waybar/scripts/player_control.sh switch-player",
+        "on-scroll-up": "~/.config/waybar/scripts/player_control.sh previous",
+        "on-scroll-down": "~/.config/waybar/scripts/player_control.sh next",
+        "format": "{}",
+        "tooltip": true
     },
     "clock": {
         "timezone": "Europe/Genoa",

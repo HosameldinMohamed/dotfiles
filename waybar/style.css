@@ -117,7 +117,7 @@
     border: 1.5px solid @yellow;
 }
 
-#language:hover, #backlight:hover, #pulseaudio:hover, #custom-music:hover, #custom-lock:hover, #custom-updates:hover, #clock:hover {
+#language:hover, #backlight:hover, #pulseaudio:hover, #custom-player_control:hover, #custom-lock:hover, #custom-updates:hover, #clock:hover {
     border-radius: 1rem;
     border: 1.5px solid @red;
 }
@@ -129,6 +129,15 @@
     margin: 5px 0;
     border-radius: 1rem;
     border: 1.5px solid @yellow;
+}
+
+#custom-player_control {
+    color: @green;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border-radius: 1rem;
+    border: 1.5px solid @green;
 }
 
 #custom-lock {
