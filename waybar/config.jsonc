@@ -100,7 +100,7 @@
         "tooltip": true
     },
     "custom/updates": {
-        "format": " 󰛀 {}",
+        "format": "  {}",
         "tooltip-format": "you have {} updates!",
         "escape": true,
         "return-type": "json",
