@@ -25,6 +25,7 @@ switch_player() {
     players=($(playerctl -l 2>/dev/null | grep -v '^playerctld$'))
     if [ "${#players[@]}" -eq 0 ]; then
         PLAYER=""
+        echo "" > "$CURRENT_PLAYER_FILE"
     else
         # Find the current player's index in the list
         for i in "${!players[@]}"; do
@@ -46,6 +47,13 @@ case $1 in
     switch-player) switch_player ;;
 esac
 
+# Check if there are any players available
+PLAYERS=$(playerctl -l 2>/dev/null)
+if [[ -z "$PLAYERS" ]]; then
+    # No players available, output nothing to hide the module
+    exit 0
+fi
+
 # Get the player name and apply the custom label if it exists in the mapping
 PLAYER_NAME_RAW=$(playerctl -p "$PLAYER" metadata --format "{{playerName}}" 2>/dev/null)
 PLAYER_NAME="${PLAYER_NAME_MAP[$PLAYER_NAME_RAW]:-$PLAYER_NAME_RAW}"
@@ -64,8 +72,7 @@ esac
 
 # Output for Waybar
 if [[ -z "$PLAYER_NAME" ]]; then
-    echo "No Player"
-    echo "No media player available"
+    exit 0  # No active player, so output nothing to hide the module
 else
     echo "$STATUS_ICON | $PLAYER_NAME"
     echo "$TRACK_INFO"

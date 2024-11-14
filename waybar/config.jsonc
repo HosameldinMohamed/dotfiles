@@ -207,21 +207,21 @@
     "custom/lock": {
         "tooltip": false,
         "on-click": "hyprlock",
-        "format": " ",
+        "format": "",
     },
 
     // Logout
     "custom/power": {
         "tooltip": false,
         "on-click": "wlogout &",
-        "format": "󰍃 "
+        "format": "󰍃"
     },
 
     "hyprland/language": {
         "format": "{}",
         "format-en": "EN",
         "format-ar": "AR",
-        "on-click": "hyprctl switchxkblayout yichip-trust-lyra-desk-set next",
+        "on-click": "hyprctl switchxkblayout current next",
     },
 
     "custom/weather": {
