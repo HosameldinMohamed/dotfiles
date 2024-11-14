@@ -79,6 +79,7 @@
             "class<Spotify>": "",
             "class<com.github.xournalpp.xournalpp>": "",
             "class<.*MATLAB.*>": "󱪳",
+            "class<.*gazebo.*>": "󱚝",
         },
     },
 
