@@ -9,6 +9,7 @@ declare -A PLAYER_NAME_MAP=(
     ["chromium"]=""
     ["spotify"]=""
     ["vlc"]="󰕼"
+    ["kdeconnect"]=""
     # Add more mappings as needed
 )
 
