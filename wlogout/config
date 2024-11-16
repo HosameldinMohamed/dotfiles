@@ -1,0 +1,49 @@
+[settings]
+# Background and layout
+indicator_bar_color = #ff79c6
+background = #282a36
+border = 2
+border_color = #6272a4
+padding = 50
+
+# Grid settings
+columns = 3
+rows = 2
+button_size = 100
+spacing = 20
+
+# Fonts and animations
+font = JetBrains Mono
+text_color = #f8f8f2
+hover_color = #44475a
+clicked_color = #50fa7b
+
+[button:logout]
+label = Logout
+icon = /path/to/logout-icon.png
+command = swaymsg exit
+
+[button:shutdown]
+label = Shutdown
+icon = /path/to/shutdown-icon.png
+command = systemctl poweroff
+
+[button:reboot]
+label = Reboot
+icon = /path/to/reboot-icon.png
+command = systemctl reboot
+
+[button:lock]
+label = Lock
+icon = /path/to/lock-icon.png
+command = swaylock
+
+[button:sleep]
+label = Sleep
+icon = /path/to/sleep-icon.png
+command = systemctl suspend
+
+[button:cancel]
+label = Cancel
+icon = /path/to/cancel-icon.png
+command = pkill wlogout
