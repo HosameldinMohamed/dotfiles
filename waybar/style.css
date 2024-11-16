@@ -13,6 +13,7 @@
     background-color: shade(@base, 0.9);
     background-color: alpha(@base, 0.5);
     border: 2px solid alpha(@crust, 1);
+    border-bottom: 2px solid alpha(@sapphire, 1);
 }
 
 #workspaces {
@@ -22,13 +23,14 @@
     margin-left: 1rem;
     margin-right: 1rem;
     padding-right: 0.7rem;
-    border: 1.5px solid @mauve;
+    border: 1.5px solid @sapphire;
 }
 
 #workspaces button {
-    color: @lavender;
+    color: @sapphire;
     border-radius: 1rem;
     padding: 0.4rem;
+    padding-right: 0.8rem;
 }
 
 #workspaces button.active {
@@ -37,8 +39,9 @@
 }
 
 #workspaces button:hover {
-    color: @sapphire;
-    border-radius: 1rem;
+    color: @peach;
+    border-radius: 0.5rem;
+    border: 1px solid alpha(@peach, 1);
 }
 
 #window,
@@ -49,6 +52,7 @@
 #custom-weather,
 #backlight,
 #clock,
+#bluetooth,
 #battery,
 #pulseaudio,
 #custom-lock,
@@ -117,7 +121,7 @@
     border: 1.5px solid @yellow;
 }
 
-#language:hover, #backlight:hover, #pulseaudio:hover, #custom-player_control:hover, #custom-lock:hover, #custom-updates:hover, #clock:hover {
+#language:hover, #backlight:hover, #pulseaudio:hover, #custom-player_control:hover, #custom-lock:hover, #custom-updates:hover, #clock:hover, #bluetooth:hover {
     border-radius: 1rem;
     border: 1.5px solid @red;
 }
@@ -186,10 +190,19 @@
     border: 1.5px solid @mauve;
 }
 
+#bluetooth {
+    color: @blue;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    color: @blue;
+    border: 1.5px solid @blue;
+}
+
 #window {
-    color: @mauve;
+    color: @sapphire;
     border-radius: 1rem;
-    border: 1.5px solid @mauve;
+    border: 1.5px solid @sapphire;
 }
 
 window#waybar.konsole {
