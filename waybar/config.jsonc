@@ -170,7 +170,8 @@
         "tooltip-format-ethernet": "{ifname}  ",
         "tooltip-format-disconnected": "Disconnected",
         "max-length": 50,
-        "on-click" : "konsole -e nmtui"
+        "on-click" : "konsole -e nmtui",
+        "on-click-right" : "nm-connection-editor"
     },
 
     // Pulseaudio
