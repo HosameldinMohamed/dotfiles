@@ -219,7 +219,6 @@
         },
         "modules": [
             "clock", // First element is the "group leader" and won't ever be hidden
-            "cpu",
             "idle_inhibitor",
             "custom/updates",
             "custom/lock",
