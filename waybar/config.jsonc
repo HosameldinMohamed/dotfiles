@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/weather", "custom/player_control", "bluetooth", "network", "backlight", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
+    "modules-right": ["tray", "custom/weather", "custom/player_control", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
     // Workspaces
     "hyprland/workspaces" : {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -221,6 +221,7 @@
             "clock", // First element is the "group leader" and won't ever be hidden
             "idle_inhibitor",
             "custom/updates",
+            "backlight",
             "custom/lock",
             "custom/power",
         ]

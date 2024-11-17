@@ -104,8 +104,8 @@
 }
 
 #backlight {
-    color: @yellow;
-    border: 1.5px solid @yellow;
+    color: @green;
+    border: 1.5px solid @green;
 }
 
 #backlight, #battery {
