@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/weather", "pulseaudio", "custom/updates", "custom/player_control", "bluetooth", "network", "backlight", "battery", "hyprland/language", "custom/lock", "custom/power", "clock"],
+    "modules-right": ["tray", "custom/weather", "pulseaudio", "custom/updates", "custom/player_control", "bluetooth", "network", "backlight", "battery", "hyprland/language", "group/group-power", "clock"],
     // Workspaces
     "hyprland/workspaces" : {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -44,6 +44,7 @@
             "class<firefox> title<.*twitch|youtube.*>": " ",
             "class<google-chrome>": " ",
             "class<google-chrome> title<.*github.*>": " ",
+            "class<google-chrome> title<.*ami-iit.*>": " ",
             "class<google-chrome> title<.*twitch|youtube.*>": " ",
             "class<google-chrome> title<.*Teams.*>": " 󰊻",
             "class<google-chrome> title<.*WhatsApp.*>": " ",
@@ -207,6 +208,19 @@
         "tooltip": false,
         "on-click": "wlogout &",
         "format": "󰍃"
+    },
+
+    "group/group-power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/power", // First element is the "group leader" and won't ever be hidden
+            "custom/lock",
+        ]
     },
 
     "hyprland/language": {
