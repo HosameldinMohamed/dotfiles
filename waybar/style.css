@@ -154,11 +154,11 @@
 }
 
 #custom-power {
-    color: @red;
+    color: @yellow;
     background-color: @surface0;
     padding: 0.5rem 1rem;
     margin: 5px 0;
-    border: 1.5px solid @red;
+    border: 1.5px solid @yellow;
 }
 
 /* #custom-chrome { */
@@ -197,6 +197,15 @@
     margin: 5px 0;
     color: @blue;
     border: 1.5px solid @blue;
+}
+
+#idle_inhibitor {
+    color: @green;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border-radius: 1rem;
+    border: 1.5px solid @green;
 }
 
 #window {

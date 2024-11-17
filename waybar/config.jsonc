@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/weather", "pulseaudio", "custom/updates", "custom/player_control", "bluetooth", "network", "backlight", "battery", "hyprland/language", "group/group-power", "clock"],
+    "modules-right": ["tray", "custom/weather", "pulseaudio", "custom/player_control", "bluetooth", "network", "backlight", "battery", "hyprland/language", "group/group-power"],
     // Workspaces
     "hyprland/workspaces" : {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -218,8 +218,11 @@
             "transition-left-to-right": false,
         },
         "modules": [
-            "custom/power", // First element is the "group leader" and won't ever be hidden
+            "clock", // First element is the "group leader" and won't ever be hidden
+            "idle_inhibitor",
+            "custom/updates",
             "custom/lock",
+            "custom/power",
         ]
     },
 
@@ -236,5 +239,13 @@
         "interval": 3600,
         "exec": "wttrbar --date-format '%m/%d' --location Genova --hide-conditions",
         "return-type": "json"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        }
     },
 }
