@@ -72,6 +72,8 @@
             "class<com.github.xournalpp.xournalpp>": " ",
             "class<.*MATLAB.*>": " 󱪳",
             "class<.*gazebo.*>": " 󱚝",
+            "class<org.kde.okular>": " ",
+            "class<org.pwmt.zathura>": " ",
         },
     },
 
