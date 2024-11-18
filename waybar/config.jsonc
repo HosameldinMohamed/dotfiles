@@ -58,6 +58,7 @@
             "class<org.kde.konsole> title<.*nvim.*>": " ",
             "class<org.kde.konsole> title<.*ironcode.*>": " ",
             "class<org.kde.konsole> title<.*supercode.*>": " ",
+            "class<org.kde.konsole> title<.*phdcode.*>": " ",
             "code": "",
             "class<thunderbird>": " ",
             "class<vlc>": "",
