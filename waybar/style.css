@@ -110,33 +110,39 @@ window#waybar.empty #window {
     border: 1.5px solid @blue;
 }
 
-#battery {
-    border-radius: 1rem;
-}
-
 #pulseaudio {
     color: @yellow;
     border: 1.5px solid @yellow;
 }
 
-#language:hover, #pulseaudio:hover, #custom-player_control:hover, #clock:hover, #bluetooth:hover {
+#language:hover,
+#pulseaudio:hover,
+#custom-player_control:hover,
+#clock:hover,
+#bluetooth:hover {
     border-radius: 1rem;
     border: 1.5px solid @red;
 }
 
-#custom-player_next:hover, #idle_inhibitor:hover {
+#custom-player_next:hover,
+#idle_inhibitor:hover {
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     border: 1.5px solid @red;
 }
 
-#custom-player_previous:hover, #custom-updates:hover {
+#custom-player_previous:hover,
+#custom-updates:hover {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
     border: 1.5px solid @red;
 }
 
-#custom-player_advance:hover, #custom-power:hover, #backlight:hover, #custom-player_rewind:hover, #custom-lock:hover {
+#custom-player_advance:hover,
+#custom-power:hover,
+#backlight:hover,
+#custom-player_rewind:hover,
+#custom-lock:hover {
     border: 1.5px solid @red;
 }
 
@@ -158,6 +164,7 @@ window#waybar.empty #window {
     border-left: 0.75px solid @green;
 }
 
+#custom-window_close,
 #custom-updates,
 #custom-player_previous {
     color: @green;
@@ -168,6 +175,18 @@ window#waybar.empty #window {
     border-bottom-left-radius: 1rem;
     border: 1.5px solid @green;
     border-right: 0.75px solid @green;
+}
+
+
+#custom-window_close {
+    color: @sapphire;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border: 1.5px solid @sapphire;
+    border-right: 0.75px solid @sapphire;
 }
 
 #backlight,
