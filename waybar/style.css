@@ -50,18 +50,17 @@
 #tray,
 #custom-updates,
 #custom-weather,
-#backlight,
 #clock,
 #bluetooth,
 #battery,
 #pulseaudio,
-#custom-lock,
 
 #custom-power {
     background-color: @surface0;
     padding: 0.5rem 1rem;
     margin: 5px 0;
-    border-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
 }
 
 #network {
@@ -105,10 +104,17 @@
 
 #backlight {
     color: @green;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    /* border-radius: 1rem; */
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
     border: 1.5px solid @green;
+    border-left: 0.75px solid @green;
 }
 
-#backlight, #battery {
+#battery {
     border-radius: 1rem;
 }
 
@@ -121,8 +127,20 @@
     border: 1.5px solid @yellow;
 }
 
-#language:hover, #backlight:hover, #pulseaudio:hover, #custom-player_control:hover, #custom-lock:hover, #custom-power:hover, #custom-updates:hover, #clock:hover, #bluetooth:hover, #idle_inhibitor:hover {
+#language:hover, #pulseaudio:hover, #custom-player_control:hover, #custom-updates:hover, #clock:hover, #bluetooth:hover {
     border-radius: 1rem;
+    border: 1.5px solid @red;
+}
+
+#custom-player_next:hover, #custom-power:hover, #backlight:hover {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border: 1.5px solid @red;
+}
+
+#custom-player_previous:hover, #custom-lock:hover, #idle_inhibitor:hover {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
     border: 1.5px solid @red;
 }
 
@@ -144,13 +162,38 @@
     border: 1.5px solid @green;
 }
 
+#custom-player_next {
+    color: @green;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    /* border-radius: 1rem; */
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border: 1.5px solid @green;
+    border-left: 0.75px solid @green;
+}
+
+#custom-player_previous {
+    color: @green;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border: 1.5px solid @green;
+    border-right: 0.75px solid @green;
+}
+
 #custom-lock {
     color: @yellow;
     background-color: @surface0;
     padding: 0.5rem 1rem;
     margin: 5px 0;
-    border-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
     border: 1.5px solid @yellow;
+    border-right: 0.75px solid @yellow;
 }
 
 #custom-power {
@@ -159,6 +202,7 @@
     padding: 0.5rem 1rem;
     margin: 5px 0;
     border: 1.5px solid @yellow;
+    border-left: 0.75px solid @yellow;
 }
 
 /* #custom-chrome { */
@@ -168,8 +212,10 @@
 
 #tray {
     color: @maroon;
+    background-color: @surface0;
     padding: 0.5rem 1rem;
     margin: 5px 0;
+    border-radius: 1rem;
     border: 1.5px solid @maroon;
 }
 
@@ -178,7 +224,7 @@
     background-color: @surface0;
     padding: 0.5rem 1rem;
     margin: 5px 0;
-    color: @blue;
+    border-radius: 1rem;
     border: 1.5px solid @blue;
 }
 
@@ -187,6 +233,7 @@
     background-color: @surface0;
     padding: 0.5rem 1rem;
     margin: 5px 0;
+    border-radius: 1rem;
     border: 1.5px solid @mauve;
 }
 
@@ -200,12 +247,14 @@
 }
 
 #idle_inhibitor {
-    color: @blue;
+    color: @green;
     background-color: @surface0;
     padding: 0.5rem 1rem;
     margin: 5px 0;
-    border-radius: 1rem;
-    border: 1.5px solid @blue;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border: 1.5px solid @green;
+    border-right: 0.75px solid @green;
 }
 
 #cpu {

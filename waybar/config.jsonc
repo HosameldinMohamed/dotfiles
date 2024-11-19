@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/weather", "custom/player_control", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
+    "modules-right": ["tray", "custom/weather", "group/media", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
     // Workspaces
     "hyprland/workspaces" : {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -130,6 +130,32 @@
         "format": "{}",
         "tooltip": true
     },
+    "custom/player_next": {
+        "interval": 1,
+        "on-click": "~/.config/waybar/scripts/player_control.sh next",
+        "format": "",
+        "tooltip": false
+    },
+    "custom/player_previous": {
+        "interval": 1,
+        "on-click": "~/.config/waybar/scripts/player_control.sh previous",
+        "format": "",
+        "tooltip": false
+    },
+    "group/media": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/player_control", // First element is the "group leader" and won't ever be hidden
+            "custom/player_previous",
+            "custom/player_next",
+        ]
+    },
+
     "clock": {
         "timezone": "Europe/Genoa",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
@@ -222,8 +248,8 @@
         },
         "modules": [
             "clock", // First element is the "group leader" and won't ever be hidden
-            "idle_inhibitor",
             "custom/updates",
+            "idle_inhibitor",
             "backlight",
             "custom/lock",
             "custom/power",
