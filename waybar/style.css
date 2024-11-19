@@ -144,6 +144,10 @@
     border: 1.5px solid @red;
 }
 
+#custom-player_advance:hover, #custom-player_rewind:hover {
+    border: 1.5px solid @red;
+}
+
 #custom-music {
     color: @yellow;
     background-color: @surface0;
@@ -183,6 +187,24 @@
     border-bottom-left-radius: 1rem;
     border: 1.5px solid @green;
     border-right: 0.75px solid @green;
+}
+
+#custom-player_advance {
+    color: @green;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border: 1.5px solid @green;
+    border-left: 0.75px solid @green;
+}
+
+#custom-player_rewind {
+    color: @green;
+    background-color: @surface0;
+    padding: 0.5rem 1rem;
+    margin: 5px 0;
+    border: 1.5px solid @green;
+    border-left: 0.75px solid @green;
 }
 
 #custom-lock {

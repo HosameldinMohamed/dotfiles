@@ -46,6 +46,8 @@ case $1 in
     next) playerctl -p "$PLAYER" next ;;
     previous) playerctl -p "$PLAYER" previous ;;
     switch-player) switch_player ;;
+    advance) playerctl -p "$PLAYER" position 15+ ;;
+    rewind) playerctl -p "$PLAYER" position 15- ;;
 esac
 
 # Check if there are any players available

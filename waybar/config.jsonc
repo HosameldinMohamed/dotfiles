@@ -142,6 +142,18 @@
         "format": "",
         "tooltip": false
     },
+    "custom/player_advance": {
+        "interval": 1,
+        "on-click": "~/.config/waybar/scripts/player_control.sh advance",
+        "format": " ",
+        "tooltip": false
+    },
+    "custom/player_rewind": {
+        "interval": 1,
+        "on-click": "~/.config/waybar/scripts/player_control.sh rewind",
+        "format": " ",
+        "tooltip": false
+    },
     "group/media": {
         "orientation": "inherit",
         "drawer": {
@@ -152,6 +164,8 @@
         "modules": [
             "custom/player_control", // First element is the "group leader" and won't ever be hidden
             "custom/player_previous",
+            "custom/player_rewind",
+            "custom/player_advance",
             "custom/player_next",
         ]
     },
