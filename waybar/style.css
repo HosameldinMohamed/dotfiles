@@ -143,6 +143,8 @@ window#waybar.empty #window {
 
 #custom-konsole:hover,
 #custom-xournalapp:hover,
+#custom-spotify:hover,
+#custom-thunderbird:hover,
 #custom-close:hover,
 #custom-fullscreen:hover,
 #custom-player_advance:hover,
@@ -188,6 +190,8 @@ window#waybar.empty #window {
 
 #custom-konsole,
 #custom-xournalapp,
+#custom-spotify,
+#custom-thunderbird,
 #custom-close,
 #custom-fullscreen,
 #backlight,

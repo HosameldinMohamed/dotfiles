@@ -106,6 +106,18 @@
         "tooltip-format": "Xournal++!",
         "tooltip": true
     },
+    "custom/spotify": {
+        "format": "",
+        "on-click": "com.spotify.Client",
+        "tooltip-format": "Spotify!",
+        "tooltip": true
+    },
+    "custom/thunderbird": {
+        "format": "",
+        "on-click": "thunderbird",
+        "tooltip-format": "Thunderbird!",
+        "tooltip": true
+    },
     "custom/dolphin": {
         "format": "",
         "on-click": "dolphin",
@@ -138,6 +150,8 @@
             "custom/chrome",
             "custom/konsole",
             "custom/xournalapp",
+            "custom/spotify",
+            "custom/thunderbird",
             "custom/dolphin",
         ]
     },
