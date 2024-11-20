@@ -124,6 +124,7 @@ window#waybar.empty #window {
     border: 1.5px solid @red;
 }
 
+#custom-dolphin:hover,
 #custom-toggle_float:hover,
 #custom-player_next:hover,
 #idle_inhibitor:hover {
@@ -132,6 +133,7 @@ window#waybar.empty #window {
     border: 1.5px solid @red;
 }
 
+#custom-chrome:hover,
 #custom-player_previous:hover,
 #custom-updates:hover {
     border-top-left-radius: 1rem;
@@ -139,7 +141,8 @@ window#waybar.empty #window {
     border: 1.5px solid @red;
 }
 
-#custom-chrome:hover,
+#custom-konsole:hover,
+#custom-xournalapp:hover,
 #custom-close:hover,
 #custom-fullscreen:hover,
 #custom-player_advance:hover,
@@ -155,6 +158,7 @@ window#waybar.empty #window {
     border: 1.5px solid @green;
 }
 
+#custom-dolphin,
 #custom-toggle_float,
 #idle_inhibitor,
 #custom-player_next {
@@ -168,6 +172,7 @@ window#waybar.empty #window {
     border-left: none;
 }
 
+#custom-chrome,
 #custom-close,
 #custom-updates,
 #custom-player_previous {
@@ -181,7 +186,8 @@ window#waybar.empty #window {
     border-right: none;
 }
 
-#custom-chrome,
+#custom-konsole,
+#custom-xournalapp,
 #custom-close,
 #custom-fullscreen,
 #backlight,

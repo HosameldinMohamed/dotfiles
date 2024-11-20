@@ -95,19 +95,19 @@
         "tooltip": true
     },
     "custom/konsole": {
-        "format": "",
+        "format": "",
         "on-click": "konsole",
         "tooltip-format": "Konsole!",
         "tooltip": true
     },
-    "custom/xournalpp": {
-        "format": "",
+    "custom/xournalapp": {
+        "format": "",
         "on-click": "xournalpp",
         "tooltip-format": "Xournal++!",
         "tooltip": true
     },
     "custom/dolphin": {
-        "format": "",
+        "format": "",
         "on-click": "dolphin",
         "tooltip-format": "Dolphin!",
         "tooltip": true
@@ -137,7 +137,7 @@
             "tray", // First element is the "group leader" and won't ever be hidden
             "custom/chrome",
             "custom/konsole",
-            "custom/xournalpp",
+            "custom/xournalapp",
             "custom/dolphin",
         ]
     },
