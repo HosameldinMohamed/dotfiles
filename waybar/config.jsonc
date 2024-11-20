@@ -156,33 +156,26 @@
         ]
     },
     "custom/close": {
+        "exec": "hyprctl activewindow | grep -i 'fullscreen:' | awk '{print ($2 == \"1\" ? \"\" : \"\")}'", // dummy to hide the button when no active window is present
         "format": "󰅙",
         "on-click": "hyprctl dispatch killactive",
+        "interval": 1,
         "tooltip-format": "Close window!",
         "tooltip": true
     },
     "custom/fullscreen": {
-        "format": " ",
+        "exec": "hyprctl activewindow | grep -i 'fullscreen:' | awk '{print ($2 == \"1\" ? \"\" : \"\")}'",
         "on-click": "hyprctl dispatch fullscreen 1",
+        "interval": 1,
         "tooltip-format": "Toggle fullscreen!",
         "tooltip": true
     },
     "custom/toggle_float": {
-        "format": " ",
+        "exec": "hyprctl activewindow | grep -i 'floating:' | awk '{print ($2 == \"1\" ? \" \" : \" \")}'",
         "on-click": "hyprctl dispatch togglefloating",
+        "interval": 1,
         "tooltip-format": "Toggle float!",
         "tooltip": true
-    },
-    "custom/music": {
-        "format": " ",
-        "escape": true,
-        "interval": 1,
-        "tooltip": true,
-        "tooltip-format": "{}",
-        // "exec": "echo $(playerctl status | sed 's/Playing/▶️/;s/Paused/⏸️/;s/Stopped/⏹️/') $(playerctl metadata --format '{{ title }} - {{ artist }}')",
-        "exec": "echo $(playerctl status | sed 's/Playing/▶️/;s/Paused/⏸️/;s/Stopped/⏹️/') $(playerctl metadata --format '{{ title }} - {{ artist }}')",
-        "on-click": "playerctl play-pause",
-        "max-length": 50
     },
     "custom/player_control": {
         "exec": "~/.config/waybar/scripts/player_control.sh",
