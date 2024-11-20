@@ -124,6 +124,7 @@ window#waybar.empty #window {
     border: 1.5px solid @red;
 }
 
+#custom-toggle_float:hover,
 #custom-player_next:hover,
 #idle_inhibitor:hover {
     border-top-right-radius: 1rem;
@@ -138,6 +139,9 @@ window#waybar.empty #window {
     border: 1.5px solid @red;
 }
 
+#custom-chrome:hover,
+#custom-close:hover,
+#custom-fullscreen:hover,
 #custom-player_advance:hover,
 #custom-power:hover,
 #backlight:hover,
@@ -151,6 +155,7 @@ window#waybar.empty #window {
     border: 1.5px solid @green;
 }
 
+#custom-toggle_float,
 #idle_inhibitor,
 #custom-player_next {
     color: @green;
@@ -164,7 +169,7 @@ window#waybar.empty #window {
     border-left: 0.75px solid @green;
 }
 
-#custom-window_close,
+#custom-close,
 #custom-updates,
 #custom-player_previous {
     color: @green;
@@ -177,18 +182,9 @@ window#waybar.empty #window {
     border-right: 0.75px solid @green;
 }
 
-
-#custom-window_close {
-    color: @sapphire;
-    background-color: @surface0;
-    padding: 0.5rem 1rem;
-    margin: 5px 0;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    border: 1.5px solid @sapphire;
-    border-right: 0.75px solid @sapphire;
-}
-
+#custom-chrome,
+#custom-close,
+#custom-fullscreen,
 #backlight,
 #custom-lock,
 #custom-power,
@@ -201,5 +197,19 @@ window#waybar.empty #window {
     border: 1.5px solid @green;
     border-left: 0.75px solid @green;
     border-right: 0.75px solid @green;
+}
+
+#custom-close,
+#custom-fullscreen,
+#custom-toggle_float {
+    border: 1.5px solid @sapphire;
+}
+
+#custom-close {
+    color: @red;
+}
+
+#custom-fullscreen {
+    color: @yellow;
 }
 

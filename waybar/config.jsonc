@@ -4,9 +4,9 @@
     "height": 50, // fixed Waybar height
     // "width": 1280, // Waybar width
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "group/group-window"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/weather", "group/media", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
+    "modules-right": ["group/group-tray", "custom/weather", "group/media", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
     // Workspaces
     "hyprland/workspaces" : {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -94,6 +94,24 @@
         "tooltip-format": "Google Chrome!",
         "tooltip": true
     },
+    "custom/konsole": {
+        "format": "",
+        "on-click": "konsole",
+        "tooltip-format": "Konsole!",
+        "tooltip": true
+    },
+    "custom/xournalpp": {
+        "format": "",
+        "on-click": "xournalpp",
+        "tooltip-format": "Xournal++!",
+        "tooltip": true
+    },
+    "custom/dolphin": {
+        "format": "",
+        "on-click": "dolphin",
+        "tooltip-format": "Dolphin!",
+        "tooltip": true
+    },
     "custom/updates": {
         "format": "  {}",
         "tooltip-format": "you have {} updates!",
@@ -107,6 +125,53 @@
     "tray": {
         "icon-size": 21,
         "spacing": 10
+    },
+    "group/group-tray": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "tray", // First element is the "group leader" and won't ever be hidden
+            "custom/chrome",
+            "custom/konsole",
+            "custom/xournalpp",
+            "custom/dolphin",
+        ]
+    },
+    "group/group-window": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "hyprland/window", // First element is the "group leader" and won't ever be hidden
+            "custom/close",
+            "custom/fullscreen",
+            "custom/toggle_float",
+        ]
+    },
+    "custom/close": {
+        "format": "󰅙",
+        "on-click": "hyprctl dispatch killactive",
+        "tooltip-format": "Close window!",
+        "tooltip": true
+    },
+    "custom/fullscreen": {
+        "format": " ",
+        "on-click": "hyprctl dispatch fullscreen 1",
+        "tooltip-format": "Toggle fullscreen!",
+        "tooltip": true
+    },
+    "custom/toggle_float": {
+        "format": " ",
+        "on-click": "hyprctl dispatch togglefloating",
+        "tooltip-format": "Toggle float!",
+        "tooltip": true
     },
     "custom/music": {
         "format": " ",
