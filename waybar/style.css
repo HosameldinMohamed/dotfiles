@@ -145,7 +145,10 @@ window#waybar.empty #window {
 #custom-xournalapp:hover,
 #custom-spotify:hover,
 #custom-thunderbird:hover,
+#custom-move_toworkspace_left:hover,
+#custom-move_toworkspace_right:hover,
 #custom-close:hover,
+#custom-cyclenext:hover,
 #custom-fullscreen:hover,
 #custom-player_advance:hover,
 #custom-power:hover,
@@ -192,7 +195,10 @@ window#waybar.empty #window {
 #custom-xournalapp,
 #custom-spotify,
 #custom-thunderbird,
+#custom-move_toworkspace_left,
+#custom-move_toworkspace_right,
 #custom-close,
+#custom-cyclenext,
 #custom-fullscreen,
 #backlight,
 #custom-lock,
@@ -208,12 +214,30 @@ window#waybar.empty #window {
     border-right: none;
 }
 
-#custom-toggle_float {
+#custom-cyclenext {
     border: 1.5px solid @sapphire;
     border-left: none;
 }
 
 #custom-fullscreen {
+    border: 1.5px solid @sapphire;
+    border-left: none;
+    border-right: none;
+}
+
+#custom-cyclenext {
+    border: 1.5px solid @sapphire;
+    border-left: none;
+    border-right: none;
+}
+
+#custom-move_toworkspace_left {
+    border: 1.5px solid @sapphire;
+    border-left: none;
+    border-right: none;
+}
+
+#custom-move_toworkspace_right {
     border: 1.5px solid @sapphire;
     border-left: none;
     border-right: none;
@@ -230,5 +254,22 @@ window#waybar.empty #window {
 
 #custom-fullscreen {
     color: @yellow;
+}
+
+#custom-cyclenext {
+    color: @yellow;
+}
+
+#custom-move_toworkspace_left {
+    color: @blue;
+}
+
+#custom-move_toworkspace_right {
+    color: @blue;
+}
+
+#custom-toggle_float {
+    border: 1.5px solid @sapphire;
+    border-left: none;
 }
 

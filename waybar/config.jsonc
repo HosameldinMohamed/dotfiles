@@ -86,6 +86,7 @@
         "separate-outputs": true,
         "icon": true,
         "on-click-middle": "hyprctl dispatch killactive",
+        "on-click-right": "hyprctl keyword cursor:no_warps true && hyprctl dispatch cyclenext && hyprctl keyword cursor:no_warps false",
     },
 
     "custom/chrome": {
@@ -165,6 +166,9 @@
         "modules": [
             "hyprland/window", // First element is the "group leader" and won't ever be hidden
             "custom/close",
+            "custom/cyclenext",
+            "custom/move_toworkspace_left",
+            "custom/move_toworkspace_right",
             "custom/fullscreen",
             "custom/toggle_float",
         ]
@@ -175,6 +179,31 @@
         "on-click": "hyprctl dispatch killactive",
         "interval": 1,
         "tooltip-format": "Close window!",
+        "tooltip": true
+    },
+    "custom/cyclenext": {
+        "exec": "hyprctl activewindow | grep -i 'fullscreen:' | awk '{print ($2 == \"1\" ? \"\" : \"\")}'", // dummy to hide the button when no active window is present
+        "format": "",
+        "on-click": "hyprctl keyword cursor:no_warps true && hyprctl dispatch cyclenext && hyprctl keyword cursor:no_warps false",
+        "on-click-right": "hyprctl keyword cursor:no_warps true && hyprctl dispatch cyclenext prev && hyprctl keyword cursor:no_warps false",
+        "interval": 1,
+        "tooltip-format": "Cycle to next Window!",
+        "tooltip": true
+    },
+    "custom/move_toworkspace_right": {
+        "exec": "hyprctl activewindow | grep -i 'fullscreen:' | awk '{print ($2 == \"1\" ? \"\" : \"\")}'", // dummy to hide the button when no active window is present
+        "format": "",
+        "on-click": "hyprctl keyword cursor:no_warps true && hyprctl dispatch movetoworkspace r+1 && hyprctl keyword cursor:no_warps false",
+        "interval": 1,
+        "tooltip-format": "Move to next workspace!",
+        "tooltip": true
+    },
+    "custom/move_toworkspace_left": {
+        "exec": "hyprctl activewindow | grep -i 'fullscreen:' | awk '{print ($2 == \"1\" ? \"\" : \"\")}'", // dummy to hide the button when no active window is present
+        "format": "",
+        "on-click": "hyprctl keyword cursor:no_warps true && hyprctl dispatch movetoworkspace r-1 && hyprctl keyword cursor:no_warps false",
+        "interval": 1,
+        "tooltip-format": "Move to previous workspace!",
         "tooltip": true
     },
     "custom/fullscreen": {
