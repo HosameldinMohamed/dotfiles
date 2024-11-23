@@ -312,6 +312,8 @@
     // Pulseaudio
     "pulseaudio": {
         "scroll-step": 5, // %, can be a float
+        "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && paplay /usr/share/sounds/ocean/stereo/audio-volume-change.oga",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && paplay /usr/share/sounds/ocean/stereo/audio-volume-change.oga",
         "format": "{icon} {volume}%",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
