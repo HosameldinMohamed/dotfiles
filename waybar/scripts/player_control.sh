@@ -13,6 +13,9 @@ declare -A PLAYER_NAME_MAP=(
     # Add more mappings as needed
 )
 
+# Signal for Waybar refresh (customize SIGRTMIN+10 as needed)
+WAYBAR_SIGNAL="SIGRTMIN+10"
+
 # Initialize or read the current player from file
 if [[ ! -f "$CURRENT_PLAYER_FILE" ]]; then
     PLAYER=$(playerctl -l 2>/dev/null | head -n 1)
@@ -21,6 +24,11 @@ else
     PLAYER=$(cat "$CURRENT_PLAYER_FILE")
 fi
 
+# Helper function to emit Waybar signal
+emit_signal() {
+    pkill -$WAYBAR_SIGNAL waybar
+}
+
 # Helper function to switch to the next available player
 switch_player() {
     players=($(playerctl -l 2>/dev/null | grep -v '^playerctld$'))
@@ -28,33 +36,48 @@ switch_player() {
         PLAYER=""
         echo "" > "$CURRENT_PLAYER_FILE"
     else
-        # Find the current player's index in the list
-        for i in "${!players[@]}"; do
-            if [[ "${players[$i]}" == "$PLAYER" ]]; then
-                next_index=$(( (i + 1) % ${#players[@]} ))
-                PLAYER="${players[$next_index]}"
-                echo "$PLAYER" > "$CURRENT_PLAYER_FILE"
-                break
-            fi
-        done
+        if [[ ! " ${players[@]} " =~ " $PLAYER " ]]; then
+            PLAYER="${players[0]}"
+        else
+            for i in "${!players[@]}"; do
+                if [[ "${players[$i]}" == "$PLAYER" ]]; then
+                    next_index=$(( (i + 1) % ${#players[@]} ))
+                    PLAYER="${players[$next_index]}"
+                    break
+                fi
+            done
+        fi
+        echo "$PLAYER" > "$CURRENT_PLAYER_FILE"
     fi
+    emit_signal  # Emit signal after switching players
 }
 
 # Check the argument passed by Waybar for handling clicks
 case $1 in
-    play-pause) playerctl -p "$PLAYER" play-pause ;;
-    next) playerctl -p "$PLAYER" next ;;
-    previous) playerctl -p "$PLAYER" previous ;;
-    switch-player) switch_player ;;
-    advance) playerctl -p "$PLAYER" position 15+ ;;
-    rewind) playerctl -p "$PLAYER" position 15- ;;
+    play-pause) 
+        playerctl -p "$PLAYER" play-pause && emit_signal 
+        ;;
+    next) 
+        playerctl -p "$PLAYER" next && emit_signal 
+        ;;
+    previous) 
+        playerctl -p "$PLAYER" previous && emit_signal 
+        ;;
+    switch-player) 
+        switch_player 
+        ;;
+    advance) 
+        playerctl -p "$PLAYER" position 15+ && emit_signal 
+        ;;
+    rewind) 
+        playerctl -p "$PLAYER" position 15- && emit_signal 
+        ;;
 esac
 
 # Check if there are any players available
 PLAYERS=$(playerctl -l 2>/dev/null)
 if [[ -z "$PLAYERS" ]]; then
-    # No players available, output nothing to hide the module
-    exit 0
+    exit 0  # No players available, output nothing to hide the module
 fi
 
 # Get the player name and apply the custom label if it exists in the mapping
