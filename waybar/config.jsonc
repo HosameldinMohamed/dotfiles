@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "group/group-window"],
     "modules-center": [],
-    "modules-right": ["group/group-tray", "custom/weather", "group/media", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
+    "modules-right": ["group/group-tray", "custom/notification", "custom/weather", "group/media", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
     // Workspaces
     "hyprland/workspaces" : {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -409,5 +409,21 @@
               "<span color='#ff9977'>▇</span>", // orange
               "<span color='#dd532e'>█</span>"  // red
          ]
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
 }

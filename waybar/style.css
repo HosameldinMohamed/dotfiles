@@ -41,6 +41,7 @@
     border: 1px solid alpha(@peach, 1);
 }
 
+#custom-notification,
 #custom-player_control,
 #language,
 #window,
@@ -110,11 +111,13 @@ window#waybar.empty #window {
     border: 1.5px solid @blue;
 }
 
+#custom-notification,
 #pulseaudio {
     color: @yellow;
     border: 1.5px solid @yellow;
 }
 
+#custom-notification:hover,
 #language:hover,
 #pulseaudio:hover,
 #custom-player_control:hover,
