@@ -14,7 +14,7 @@
         "on-click": "activate",
         "active-only": false,
         "all-outputs": true,
-        "move-to-monitor": true,
+        "move-to-monitor": false,
         "format": "{icon}{windows}",
         "show-special": true,
         "format-icons": {
