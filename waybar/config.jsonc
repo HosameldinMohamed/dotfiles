@@ -61,7 +61,7 @@
             "class<org.kde.konsole> title<.*phdcode.*>": " ",
             "code": "",
             "class<thunderbird>": " ",
-            "class<vlc>": "",
+            "class<vlc>": " 󰕼",
             "class<org.gnome.Nautilus>": "",
             "class<org.kde.dolphin>": " ",
             "class<org.kde.kate>": " ",
