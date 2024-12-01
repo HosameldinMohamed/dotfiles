@@ -5,7 +5,7 @@ CURRENT_PLAYER_FILE="/tmp/current_player.txt"
 
 # Define a mapping of long player names to custom labels
 declare -A PLAYER_NAME_MAP=(
-    ["plasma-browser-integration"]=""
+    ["plasma-browser-integration"]=""
     ["chromium"]=""
     ["spotify"]=""
     ["vlc"]="󰕼"
