@@ -75,6 +75,7 @@
             "class<org.kde.okular>": " ",
             "class<org.pwmt.zathura>": " ",
             "class<slack>": " 󰒱",
+            "class<.*chrome.*> title<.*WhatsApp.*>": " ",
         },
     },
 
