@@ -74,6 +74,7 @@
             "class<.*gazebo.*>": " 󱚝",
             "class<org.kde.okular>": " ",
             "class<org.pwmt.zathura>": " ",
+            "class<slack>": " 󰒱",
         },
     },
 
