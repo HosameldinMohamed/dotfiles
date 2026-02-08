@@ -121,6 +121,18 @@
         "tooltip-format": "Thunderbird!",
         "tooltip": true
     },
+    "custom/whatsapp": {
+        "format": "",
+        "on-click": "google-chrome-stable --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm",
+        "tooltip-format": "WhatsApp!",
+        "tooltip": true
+    },
+    "custom/slack": {
+        "format": "󰒱",
+        "on-click": "slack",
+        "tooltip-format": "Slack!",
+        "tooltip": true
+    },
     "custom/dolphin": {
         "format": "",
         "on-click": "dolphin",
@@ -154,7 +166,8 @@
             "custom/konsole",
             "custom/xournalapp",
             "custom/spotify",
-            "custom/thunderbird",
+            "custom/slack",
+            "custom/whatsapp",
             "custom/dolphin",
         ]
     },
