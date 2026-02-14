@@ -76,6 +76,7 @@
             "class<org.pwmt.zathura>": " ",
             "class<slack>": " 󰒱",
             "class<.*chrome.*> title<.*WhatsApp.*>": " ",
+            "class<code>": " ",
         },
     },
 
