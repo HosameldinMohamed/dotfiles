@@ -2,6 +2,7 @@
 
 # Persistent file to store the current player
 CURRENT_PLAYER_FILE="/tmp/current_player.txt"
+WAYBAR_SIGNAL="SIGRTMIN+10"
 
 # Define a mapping of long player names to custom labels
 declare -A PLAYER_NAME_MAP=(
@@ -13,94 +14,101 @@ declare -A PLAYER_NAME_MAP=(
     # Add more mappings as needed
 )
 
-# Signal for Waybar refresh (customize SIGRTMIN+10 as needed)
-WAYBAR_SIGNAL="SIGRTMIN+10"
+# Helper function to generate a lean progress bar
+get_progress_bar() {
+    local player=$1
+    # Get position and length in seconds
+    local pos=$(playerctl -p "$player" position 2>/dev/null | cut -d'.' -f1)
+    local len=$(playerctl -p "$player" metadata mpris:length 2>/dev/null)
 
-# Initialize or read the current player from file
-if [[ ! -f "$CURRENT_PLAYER_FILE" ]]; then
-    PLAYER=$(playerctl -l 2>/dev/null | head -n 1)
-    echo "$PLAYER" > "$CURRENT_PLAYER_FILE"
+    # If length is missing (common in some streams), return empty
+    if [[ -z "$len" || "$len" -eq 0 ]]; then echo ""; return; fi
+
+    # Convert microseconds to seconds
+    len=$((len / 1000000))
+    
+    # Calculate percentage (0-6)
+    local percent=$(( (pos * 6) / len ))
+    local bar=""
+
+# Total width of 10 segments
+    for i in {0..6}; do
+        if [ "$i" -eq 0 ]; then
+            # Start Cap
+            [[ "$i" -le "$percent" ]] && bar+="" || bar+=""
+        elif [ "$i" -eq 6 ]; then
+            # End Cap
+            [[ "$i" -le "$percent" ]] && bar+="" || bar+=""
+        else
+            # Middle Segments
+            [[ "$i" -le "$percent" ]] && bar+="" || bar+=""
+        fi
+    done
+    echo " $bar"
+}
+
+# 1. Automatic Switching Logic
+ACTIVE_PLAYING_PLAYER=$(playerctl -l 2>/dev/null | grep -v 'playerctld' | while read -r p; do
+    if [[ $(playerctl -p "$p" status 2>/dev/null) == "Playing" ]]; then
+        echo "$p"
+        break
+    fi
+done)
+
+if [[ -f "$CURRENT_PLAYER_FILE" ]]; then
+    SAVED_PLAYER=$(cat "$CURRENT_PLAYER_FILE")
 else
-    PLAYER=$(cat "$CURRENT_PLAYER_FILE")
+    SAVED_PLAYER=$(playerctl -l 2>/dev/null | head -n 1)
 fi
 
-# Helper function to emit Waybar signal
-emit_signal() {
-    pkill -$WAYBAR_SIGNAL waybar
-}
+if [[ -n "$ACTIVE_PLAYING_PLAYER" && "$ACTIVE_PLAYING_PLAYER" != "$SAVED_PLAYER" ]]; then
+    PLAYER="$ACTIVE_PLAYING_PLAYER"
+    echo "$PLAYER" > "$CURRENT_PLAYER_FILE"
+else
+    PLAYER="$SAVED_PLAYER"
+fi
 
-# Helper function to switch to the next available player
-switch_player() {
-    players=($(playerctl -l 2>/dev/null | grep -v '^playerctld$'))
-    if [ "${#players[@]}" -eq 0 ]; then
-        PLAYER=""
-        echo "" > "$CURRENT_PLAYER_FILE"
-    else
-        if [[ ! " ${players[@]} " =~ " $PLAYER " ]]; then
-            PLAYER="${players[0]}"
-        else
-            for i in "${!players[@]}"; do
-                if [[ "${players[$i]}" == "$PLAYER" ]]; then
-                    next_index=$(( (i + 1) % ${#players[@]} ))
-                    PLAYER="${players[$next_index]}"
-                    break
-                fi
-            done
-        fi
-        echo "$PLAYER" > "$CURRENT_PLAYER_FILE"
-    fi
-    emit_signal  # Emit signal after switching players
-}
-
-# Check the argument passed by Waybar for handling clicks
+# 2. Handle Click Arguments
 case $1 in
-    play-pause) 
-        playerctl -p "$PLAYER" play-pause && emit_signal 
-        ;;
-    next) 
-        playerctl -p "$PLAYER" next && emit_signal 
-        ;;
-    previous) 
-        playerctl -p "$PLAYER" previous && emit_signal 
-        ;;
-    switch-player) 
-        switch_player 
-        ;;
-    advance) 
-        playerctl -p "$PLAYER" position 15+ && emit_signal 
-        ;;
-    rewind) 
-        playerctl -p "$PLAYER" position 15- && emit_signal 
+    play-pause) playerctl -p "$PLAYER" play-pause && pkill -$WAYBAR_SIGNAL waybar ;;
+    next)       playerctl -p "$PLAYER" next && pkill -$WAYBAR_SIGNAL waybar ;;
+    previous)   playerctl -p "$PLAYER" previous && pkill -$WAYBAR_SIGNAL waybar ;;
+    switch-player)
+        players=($(playerctl -l 2>/dev/null | grep -v 'playerctld'))
+        for i in "${!players[@]}"; do
+            if [[ "${players[$i]}" == "$PLAYER" ]]; then
+                next_index=$(( (i + 1) % ${#players[@]} ))
+                PLAYER="${players[$next_index]}"
+                echo "$PLAYER" > "$CURRENT_PLAYER_FILE"
+                break
+            fi
+        done
+        pkill -$WAYBAR_SIGNAL waybar
         ;;
 esac
 
-# Check if there are any players available
+# 3. Output for Waybar
 PLAYERS=$(playerctl -l 2>/dev/null)
 if [[ -z "$PLAYERS" ]]; then
-    exit 0  # No players available, output nothing to hide the module
+    exit 0
 fi
 
-# Get the player name and apply the custom label if it exists in the mapping
 PLAYER_NAME_RAW=$(playerctl -p "$PLAYER" metadata --format "{{playerName}}" 2>/dev/null)
 PLAYER_NAME="${PLAYER_NAME_MAP[$PLAYER_NAME_RAW]:-$PLAYER_NAME_RAW}"
 
-# Get track title and artist
 TRACK_INFO=$(playerctl -p "$PLAYER" metadata --format "{{title}} - {{artist}}" 2>/dev/null)
-TRACK_INFO="${TRACK_INFO:-No Track Playing}"
+[[ -z "$TRACK_INFO" ]] && TRACK_INFO="No Track Playing"
 
-# Get the playback status and set icon accordingly
 STATUS=$(playerctl -p "$PLAYER" status 2>/dev/null)
 case "$STATUS" in
-    "Playing") STATUS_ICON="" ;;  # Pause icon when playing
-    "Paused") STATUS_ICON="" ;;   # Play icon when paused
-    *) STATUS_ICON="" ;;         # Stop icon otherwise
+    "Playing") STATUS_ICON="" ;;
+    "Paused")  STATUS_ICON="" ;;
+    *)         STATUS_ICON="" ;;
 esac
 
-# Output for Waybar
-if [[ -z "$PLAYER_NAME" ]]; then
-    exit 0  # No active player, so output nothing to hide the module
-else
-    echo "$STATUS_ICON | $PLAYER_NAME"
-    echo "$TRACK_INFO"
-fi
+PROGRESS_BAR=$(get_progress_bar "$PLAYER")
 
+# Line 1: Shows on the bar (Icon | Player | Progress)
+echo "$STATUS_ICON $PLAYER_NAME $PROGRESS_BAR"
+# Line 2: Shows in the tooltip
+echo "$TRACK_INFO"
