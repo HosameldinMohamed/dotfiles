@@ -318,7 +318,7 @@
     "network": {
         "format": "{ifname}",
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-ethernet": "󰌘 /{cidr} ",
         "format-disconnected": "󰌙",
         "tooltip-format": "{ifname} via {gwaddr} 󱂇",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
@@ -355,6 +355,7 @@
     // Bluetooth
     "bluetooth": {
         "format": " {status}",
+        "format-connected": "  ",
         "format-disabled": "",
         "format-off": "",
         "interval": 30,
