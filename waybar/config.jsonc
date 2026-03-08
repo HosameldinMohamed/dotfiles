@@ -18,11 +18,12 @@
         "format": "{icon}{windows}",
         "show-special": true,
         "format-icons": {
-            "active": "",
+            "active": "󰨇",
             "default": "",
             "special": "",
             "empty": "",
             "urgent": "",
+            "visible": "󰍹",
         },
         "persistent-workspaces": {
             "1": [],

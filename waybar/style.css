@@ -41,6 +41,22 @@
     border: 1px solid alpha(@peach, 1);
 }
 
+#workspaces button.hosting-monitor {
+    color: @yellow;
+    border-radius: 0.5rem;
+}
+
+#workspaces button.visible {
+    color: @mauve;
+    border-radius: 1rem;
+}
+
+#workspaces button.active {
+    color: @red;
+    border-radius: 1rem;
+}
+
+
 #custom-notification,
 #custom-player_control,
 #language,
