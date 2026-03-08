@@ -1,3 +1,5 @@
 **/__pycache__/
 lazygit/state.yml
 tmux/plugins/
+hypr/monitors.conf
+hypr/workspaces.conf
