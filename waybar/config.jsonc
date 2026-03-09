@@ -339,7 +339,7 @@
     "network": {
         "format": "{ifname}",
         "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "󰌘 /{cidr} ",
+        "format-ethernet": "󰌘  ",
         "format-disconnected": "󰌙",
         "tooltip-format": "{ifname} via {gwaddr} 󱂇",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
