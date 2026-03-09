@@ -79,6 +79,7 @@
             "class<.*chrome.*> title<.*WhatsApp.*>": " ",
             "class<.*chrome.*> title<.*Teams.*>": " 󰊻",
             "class<.*chrome.*> title<.*Outlook.*>": " 󰴢",
+            "class<.*chrome.*> title<.*Todoist.*>": " ",
             "class<code>": " ",
         },
     },
@@ -127,8 +128,26 @@
     },
     "custom/whatsapp": {
         "format": "",
-        "on-click": "google-chrome-stable --profile-directory=Default --app-id=hnpfjngllnobngcgfapefoaidbinmjnm",
+        "on-click": "google-chrome-stable --profile-directory=Default --app=https://web.whatsapp.com",
         "tooltip-format": "WhatsApp!",
+        "tooltip": true
+    },
+    "custom/teams": {
+        "format": "󰊻",
+        "on-click": "google-chrome-stable --profile-directory=Default --app=https://teams.microsoft.com",
+        "tooltip-format": "Microsoft Teams!",
+        "tooltip": true
+    },
+    "custom/outlook": {
+        "format": "󰴢",
+        "on-click": "google-chrome-stable --profile-directory=Default --app=https://outlook.office.com",
+        "tooltip-format": "Outlook!",
+        "tooltip": true
+    },
+    "custom/todoist": {
+        "format": "",
+        "on-click": "google-chrome-stable --profile-directory=Default --app=https://app.todoist.com",
+        "tooltip-format": "Todoist!",
         "tooltip": true
     },
     "custom/slack": {
@@ -168,10 +187,12 @@
             "tray", // First element is the "group leader" and won't ever be hidden
             "custom/chrome",
             "custom/konsole",
-            "custom/xournalapp",
             "custom/spotify",
             "custom/slack",
             "custom/whatsapp",
+            "custom/teams",
+            "custom/outlook",
+            "custom/todoist",
             "custom/dolphin",
         ]
     },
