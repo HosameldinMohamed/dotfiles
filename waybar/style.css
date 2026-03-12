@@ -143,6 +143,7 @@ window#waybar.empty #window {
     border: 1.5px solid @red;
 }
 
+#custom-mpris_extra:hover,
 #custom-dolphin:hover,
 #custom-toggle_float:hover,
 #custom-player_next:hover,
@@ -152,6 +153,7 @@ window#waybar.empty #window {
     border: 1.5px solid @red;
 }
 
+#mpris:hover,
 #custom-chrome:hover,
 #custom-player_previous:hover,
 #custom-updates:hover {
@@ -174,6 +176,7 @@ window#waybar.empty #window {
 #custom-cyclenext:hover,
 #custom-fullscreen:hover,
 #custom-player_advance:hover,
+#custom-mpris_extra:hover,
 #custom-power:hover,
 #backlight:hover,
 #custom-player_rewind:hover,
@@ -186,6 +189,7 @@ window#waybar.empty #window {
     border: 1.5px solid @green;
 }
 
+#custom-mpris_extra,
 #custom-dolphin,
 #custom-toggle_float,
 #idle_inhibitor,
@@ -200,6 +204,7 @@ window#waybar.empty #window {
     border-left: none;
 }
 
+#mpris,
 #custom-chrome,
 #custom-close,
 #custom-updates,

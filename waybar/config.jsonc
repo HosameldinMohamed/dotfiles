@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "group/group-window"],
     "modules-center": [],
-    "modules-right": ["group/group-tray", "custom/notification", "custom/weather", "group/media", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
+    "modules-right": ["group/group-tray", "custom/notification", "custom/weather", "group/media", "custom/mpris_extra", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
     // Workspaces
     "hyprland/workspaces" : {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -260,6 +260,35 @@
         "tooltip-format": "Toggle float!",
         "tooltip": true
     },
+    "mpris": {
+        "format": "{player_icon} | {status_icon}",
+        "format-paused": "{player_icon} | {status_icon}",
+        "interval": 1,
+        "on-click-right": "playerctld shift",
+        "on-click-middle": "playerctld unshift",
+        "player-icons": {
+            "default": "",
+            "chromium": "",
+            "spotify": "",
+            "kdeconnect": "",
+            "plasma-browser-integration": "",
+            "vlc": "󰕼"
+        },
+        "status-icons": {
+            "playing": "",
+            "paused": "",
+            "stopped": ""
+        },
+        // "ignored-players": ["firefox"]
+    },
+    "custom/mpris_extra": {
+        "exec": "~/.config/waybar/scripts/player_progress.sh",
+        "interval": 1,
+        "return-type": "text",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl position 10+",
+        "on-scroll-down": "playerctl position 10-",
+    },
     "custom/player_control": {
         "exec": "~/.config/waybar/scripts/player_control.sh",
         "interval": 1,
@@ -274,25 +303,25 @@
     },
     "custom/player_next": {
         "interval": 1,
-        "on-click": "~/.config/waybar/scripts/player_control.sh next",
+        "on-click": "playerctl next",
         "format": "",
         "tooltip": false
     },
     "custom/player_previous": {
         "interval": 1,
-        "on-click": "~/.config/waybar/scripts/player_control.sh previous",
+        "on-click": "playerctl previous",
         "format": "",
         "tooltip": false
     },
     "custom/player_advance": {
         "interval": 1,
-        "on-click": "~/.config/waybar/scripts/player_control.sh advance",
+        "on-click": "playerctl position 10+",
         "format": " ",
         "tooltip": false
     },
     "custom/player_rewind": {
         "interval": 1,
-        "on-click": "~/.config/waybar/scripts/player_control.sh rewind",
+        "on-click": "playerctl position 10-",
         "format": " ",
         "tooltip": false
     },
@@ -304,7 +333,7 @@
             "transition-left-to-right": false,
         },
         "modules": [
-            "custom/player_control", // First element is the "group leader" and won't ever be hidden
+            "mpris", // First element is the "group leader" and won't ever be hidden
             "custom/player_previous",
             "custom/player_rewind",
             "custom/player_advance",
