@@ -267,7 +267,7 @@
         "on-click-right": "playerctld shift",
         "on-click-middle": "playerctld unshift",
         "player-icons": {
-            "default": "",
+            "default": "",
             "chromium": "",
             "spotify": "",
             "kdeconnect": "",
@@ -275,8 +275,8 @@
             "vlc": "󰕼"
         },
         "status-icons": {
-            "playing": "",
-            "paused": "",
+            "playing": "",
+            "paused": "",
             "stopped": ""
         },
         // "ignored-players": ["firefox"]
