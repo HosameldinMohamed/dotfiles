@@ -286,8 +286,8 @@
         "interval": 1,
         "return-type": "text",
         "on-click": "playerctl play-pause",
-        "on-scroll-up": "playerctl position 10+",
-        "on-scroll-down": "playerctl position 10-",
+        "on-scroll-up": "playerctl position 10-",
+        "on-scroll-down": "playerctl position 10+",
     },
     "custom/player_control": {
         "exec": "~/.config/waybar/scripts/player_control.sh",
