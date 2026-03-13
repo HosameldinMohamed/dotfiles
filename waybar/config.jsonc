@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["hyprland/workspaces", "group/group-window"],
     "modules-center": [],
-    "modules-right": ["group/group-tray", "custom/notification", "custom/weather", "group/media", "custom/mpris_extra", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
+    "modules-right": ["group/group-tray", "custom/notification", "custom/weather", "group/media", "group/player", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
     // Workspaces
     "hyprland/workspaces" : {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
@@ -281,11 +281,21 @@
         },
         // "ignored-players": ["firefox"]
     },
-    "custom/mpris_extra": {
+    "custom/player_progress": {
         "exec": "~/.config/waybar/scripts/player_progress.sh",
         "interval": 1,
         "return-type": "text",
+        "on-scroll-up": "playerctl position 10-",
+        "on-scroll-down": "playerctl position 10+",
+    },
+    "custom/player_info": {
+        "exec": "~/.config/waybar/scripts/player_info.sh",
+        "interval": 1,
+        "return-type": "json",
+        "tooltip": true,
         "on-click": "playerctl play-pause",
+        "on-click-right": "playerctld shift",
+        "on-click-middle": "playerctld unshift",
         "on-scroll-up": "playerctl position 10-",
         "on-scroll-down": "playerctl position 10+",
     },
@@ -338,6 +348,19 @@
             "custom/player_rewind",
             "custom/player_advance",
             "custom/player_next",
+        ]
+    },
+    "group/player": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+            "click-to-reveal": true,
+        },
+        "modules": [
+            "custom/player_progress",
+            "custom/player_info",
         ]
     },
 

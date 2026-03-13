@@ -143,7 +143,7 @@ window#waybar.empty #window {
     border: 1.5px solid @red;
 }
 
-#custom-mpris_extra:hover,
+#custom-player_progress:hover,
 #custom-dolphin:hover,
 #custom-toggle_float:hover,
 #custom-player_next:hover,
@@ -175,8 +175,9 @@ window#waybar.empty #window {
 #custom-close:hover,
 #custom-cyclenext:hover,
 #custom-fullscreen:hover,
+#custom-player_info:hover,
 #custom-player_advance:hover,
-#custom-mpris_extra:hover,
+#custom-player_progress:hover,
 #custom-power:hover,
 #backlight:hover,
 #custom-player_rewind:hover,
@@ -189,7 +190,7 @@ window#waybar.empty #window {
     border: 1.5px solid @green;
 }
 
-#custom-mpris_extra,
+#custom-player_progress,
 #custom-dolphin,
 #custom-toggle_float,
 #idle_inhibitor,
@@ -204,7 +205,7 @@ window#waybar.empty #window {
     border-left: none;
 }
 
-#custom-mpris_extra
+#custom-player_progress
 {
     font-size: 25px;
 }
@@ -240,6 +241,7 @@ window#waybar.empty #window {
 #backlight,
 #custom-lock,
 #custom-power,
+#custom-player_info,
 #custom-player_advance,
 #custom-player_rewind {
     color: @green;
