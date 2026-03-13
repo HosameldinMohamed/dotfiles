@@ -204,6 +204,11 @@ window#waybar.empty #window {
     border-left: none;
 }
 
+#custom-mpris_extra
+{
+    font-size: 25px;
+}
+
 #mpris,
 #custom-chrome,
 #custom-close,
