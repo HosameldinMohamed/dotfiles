@@ -22,12 +22,6 @@
   "hide-on-action": true,
   "script-fail-notify": true,
   "text-empty": "No Notification",
-  "scripts": {
-    "sound-script": {
-      "exec": "paplay ~/.config/swaync/notification.ogg",
-      "app-name": ".*"
-    }
-  },
   "widgets": ["title", "buttons-grid", "mpris"],
   "widget-config": {
     "title": {
