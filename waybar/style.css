@@ -147,7 +147,7 @@ window#waybar.empty #window {
 #custom-dolphin:hover,
 #custom-toggle_float:hover,
 #custom-player_next:hover,
-#idle_inhibitor:hover {
+#custom-screenshot:hover {
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     border: 1.5px solid @red;
@@ -182,6 +182,7 @@ window#waybar.empty #window {
 #custom-power:hover,
 #backlight:hover,
 #custom-player_rewind:hover,
+#idle_inhibitor:hover,
 #custom-lock:hover {
     border: 1.5px solid @red;
 }
@@ -194,7 +195,7 @@ window#waybar.empty #window {
 #custom-player_progress,
 #custom-dolphin,
 #custom-toggle_float,
-#idle_inhibitor,
+#custom-screenshot,
 #custom-player_next {
     color: @green;
     background-color: @surface0;
@@ -243,6 +244,7 @@ window#waybar.empty #window {
 #backlight,
 #custom-lock,
 #custom-power,
+#idle_inhibitor,
 #custom-player_info,
 #custom-player_advance,
 #custom-player_rewind {

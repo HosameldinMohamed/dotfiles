@@ -172,6 +172,13 @@
         "on-click": "konsole -e ~/.config/waybar/scripts/install-updates.sh",
         "tooltip": true
     },
+    "custom/screenshot": {
+        "format": "󰄀",
+        "on-click": "hyprshot -m region",
+        "on-click-right": "hyprshot -m output",
+        "tooltip-format": "Take a screenshot!",
+        "tooltip": true
+    },
     "tray": {
         "icon-size": 21,
         "spacing": 10
@@ -472,6 +479,7 @@
             "custom/lock",
             "backlight",
             "idle_inhibitor",
+            "custom/screenshot",
         ]
     },
 
