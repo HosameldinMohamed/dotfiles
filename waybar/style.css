@@ -173,6 +173,7 @@ window#waybar.empty #window {
 #custom-move_toworkspace_left:hover,
 #custom-move_toworkspace_right:hover,
 #custom-close:hover,
+#custom-submap:hover,
 #custom-cyclenext:hover,
 #custom-fullscreen:hover,
 #custom-player_info:hover,
@@ -236,6 +237,7 @@ window#waybar.empty #window {
 #custom-move_toworkspace_left,
 #custom-move_toworkspace_right,
 #custom-close,
+#custom-submap,
 #custom-cyclenext,
 #custom-fullscreen,
 #backlight,
@@ -258,25 +260,11 @@ window#waybar.empty #window {
     border-left: none;
 }
 
-#custom-fullscreen {
-    border: 1.5px solid @sapphire;
-    border-left: none;
-    border-right: none;
-}
-
+#custom-submap,
+#custom-move_toworkspace_right,
+#custom-move_toworkspace_left,
+#custom-fullscreen,
 #custom-cyclenext {
-    border: 1.5px solid @sapphire;
-    border-left: none;
-    border-right: none;
-}
-
-#custom-move_toworkspace_left {
-    border: 1.5px solid @sapphire;
-    border-left: none;
-    border-right: none;
-}
-
-#custom-move_toworkspace_right {
     border: 1.5px solid @sapphire;
     border-left: none;
     border-right: none;
@@ -289,6 +277,10 @@ window#waybar.empty #window {
 
 #custom-close {
     color: @red;
+}
+
+#custom-submap {
+    color: @green;
 }
 
 #custom-fullscreen {

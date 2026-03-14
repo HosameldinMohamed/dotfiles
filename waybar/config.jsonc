@@ -206,6 +206,7 @@
         "modules": [
             "hyprland/window", // First element is the "group leader" and won't ever be hidden
             "custom/close",
+            "custom/submap",
             "custom/cyclenext",
             "custom/move_toworkspace_left",
             "custom/move_toworkspace_right",
@@ -219,6 +220,13 @@
         "on-click": "hyprctl dispatch killactive",
         "interval": 1,
         "tooltip-format": "Close window!",
+        "tooltip": true
+    },
+    "custom/submap": {
+        "exec": "hyprctl submap | awk '$1==\"mouseMove\"{print \"󰍽\"; next} {print \"󰌌\"}'",
+        "on-click": "~/.config/waybar/scripts/toggle_mouse_move_submap.sh",
+        "interval": 1,
+        "tooltip-format": "Use mouse 󰍽",
         "tooltip": true
     },
     "custom/cyclenext": {
