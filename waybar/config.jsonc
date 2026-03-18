@@ -405,8 +405,8 @@
 
     "network": {
         "format": "{ifname}",
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "󰌘  ",
+        "format-wifi": " |",
+        "format-ethernet": "󰌘 | ",
         "format-disconnected": "󰌙",
         "tooltip-format": "{ifname} via {gwaddr} 󱂇",
         "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
@@ -443,7 +443,7 @@
     // Bluetooth
     "bluetooth": {
         "format": " {status}",
-        "format-connected": "  ",
+        "format-connected": " | ",
         "format-disabled": "",
         "format-off": "",
         "interval": 30,
