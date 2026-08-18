@@ -444,10 +444,11 @@
     "bluetooth": {
         "format": " {status}",
         "format-connected": " | ",
+        "format-connected-battery": " |  {device_battery_percentage}%",
         "format-disabled": "",
-        "format-off": "",
         "interval": 30,
-        "on-click": "blueman-manager",
+        "on-click": "bluetoothctl show | grep -q \"Powered: yes\" && bluetoothctl power off || bluetoothctl power on",
+        "on-click-right": "blueman-manager",
         "format-no-controller": "",
     },
 
