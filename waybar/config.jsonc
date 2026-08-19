@@ -9,8 +9,8 @@
     "modules-right": ["group/group-tray", "custom/notification", "custom/weather", "group/media", "group/player", "bluetooth", "network", "battery", "hyprland/language", "pulseaudio", "group/group-power"],
     // Workspaces
     "hyprland/workspaces" : {
-        "on-scroll-up": "hyprctl dispatch workspace r-1",
-        "on-scroll-down": "hyprctl dispatch workspace r+1",        
+        "on-scroll-up": "hyprctl dispatch \"hl.dsp.focus({workspace = 'r-1'})\"",
+        "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({workspace = 'r+1'})\"",
         "on-click": "activate",
         "active-only": false,
         "all-outputs": true,
@@ -224,7 +224,7 @@
     "custom/close": {
         "exec": "hyprctl activewindow | grep -i 'fullscreen:' | awk '{print ($2 == \"1\" ? \"\" : \"\")}'", // dummy to hide the button when no active window is present
         "format": "󰅙",
-        "on-click": "hyprctl dispatch killactive",
+        "on-click": "hyprctl dispatch \"hl.dsp.window.close()\"",
         "interval": 1,
         "tooltip-format": "Close window!",
         "tooltip": true
